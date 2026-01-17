@@ -8,7 +8,7 @@ import time  # 引入時間模組，用於控制速度
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # --- 使用性能更強的 Pro 模型 ---
-model = genai.GenerativeModel('gemini-1.5-pro-002')
+model = genai.GenerativeModel('gemini-pro')
 
 # 取得台灣時間
 tw_time = datetime.now(pytz.timezone('Asia/Taipei')).strftime("%Y-%m-%d %H:%M")
