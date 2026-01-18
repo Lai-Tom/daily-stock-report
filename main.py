@@ -9,7 +9,7 @@ genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # --- 🎯 修正：改用免費且強大的 Gemini 2.5 Flash ---
 # 2.5 Pro 為付費限定 (Limit: 0)，Flash 版本則提供免費額度且性能優異
-model_name = "gemini-2.5-flash"
+model_name = "gemini-3-pro-preview"
 model = genai.GenerativeModel(model_name)
 
 # 取得台灣時間
