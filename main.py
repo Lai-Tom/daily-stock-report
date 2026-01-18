@@ -7,14 +7,10 @@ import time
 # 設定 API Key
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
-# --- 使用 Gemini 3.0 Pro Preview ---
-model_name = "gemini-3-pro-preview"
-model = genai.GenerativeModel(model_name)
-
 # 取得台灣時間
 tw_time = datetime.now(pytz.timezone('Asia/Taipei')).strftime("%Y-%m-%d %H:%M")
 
-# --- 您的關注清單 ---
+# --- 您的關注清單 (已同步 Google App 排程：移除台積電) ---
 prompts = [
     {
         "title": "🚀 LUNR (Intuitive Machines) 動態",
@@ -31,27 +27,40 @@ prompts = [
     {
         "title": "⚛️ 核能板塊深度掃描",
         "query": "請針對美股核能板塊重點個股：OKLO, BWXT, SMR, LEU 進行綜合分析。請比較它們近期的消息面利多與利空，並評估短期內的投資風險與機會。"
-    },
-    {
-        "title": "🇹🇼 台積電 (2330/TSM) 戰略分析",
-        "query": "請整理台積電 (2330/TSM) 最新的法說會關鍵數據、高層對未來的展望言論，以及華爾街與外資機構對其後市的最新評級與目標價調整。"
     }
 ]
 
-# --- 生成 HTML 內容 (CSS 優化版) ---
+# --- 智慧生成函數 (含自動救援機制) ---
+def smart_generate(prompt_text):
+    # 第一優先：嘗試使用最強的 Gemini 3.0 Pro Preview
+    try:
+        model_3 = genai.GenerativeModel("gemini-3-pro-preview")
+        response = model_3.generate_content(prompt_text)
+        return response.text, "Gemini 3.0 Pro Preview"
+    except Exception as e:
+        print(f"⚠️ 3.0 Preview 暫時不穩 ({e})，正在切換至 2.5 Pro 救援...")
+        # 救援方案：切換至穩定的 Gemini 2.5 Pro
+        try:
+            model_25 = genai.GenerativeModel("gemini-2.5-pro")
+            response = model_25.generate_content(prompt_text)
+            return response.text, "Gemini 2.5 Pro (救援模式)"
+        except Exception as e2:
+            return f"分析失敗，系統暫時無法回應。錯誤訊息：{e2}", "Error"
+
+# --- 生成 HTML 內容 ---
 html_content = f"""
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人美股戰情室 (3.0版)</title>
+    <title>個人美股戰情室</title>
     <style>
         /* 全域設定 */
         body {{ 
             font-family: "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             line-height: 1.8; 
-            font-size: 16px; /* 統一內文基準大小 */
+            font-size: 16px; 
             color: #333;
             max-width: 900px; 
             margin: 0 auto; 
@@ -66,13 +75,12 @@ html_content = f"""
             border-bottom: 3px solid #d32f2f; 
             padding-bottom: 15px; 
             margin-bottom: 10px; 
-            font-size: 28px; /* 大標題 */
+            font-size: 28px; 
             font-weight: bold;
         }}
 
-        /* 時間與模型標籤 */
-        .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 20px; }}
-        .model-tag {{ display: inline-block; background: linear-gradient(90deg, #d32f2f, #8e44ad); color: white; padding: 5px 15px; border-radius: 20px; font-size: 13px; margin-bottom: 30px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }}
+        /* 時間 */
+        .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }}
 
         /* 卡片區塊 */
         .card {{ 
@@ -83,29 +91,42 @@ html_content = f"""
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
         }}
 
-        /* 卡片標題 (股票名稱) */
+        /* 卡片標題 */
         h2 {{ 
             color: #d32f2f; 
             margin-top: 0; 
             border-left: 5px solid #003366; 
             padding-left: 15px; 
-            font-size: 22px; /* 卡片標題統一大小 */
+            font-size: 22px; 
             font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }}
 
-        /* 內文標題 (AI 生成的小標) */
+        /* 模型標籤 (顯示在每個卡片右上角) */
+        .model-badge {{
+            font-size: 12px;
+            background: #eee;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: normal;
+        }}
+
+        /* 內文標題 */
         h3 {{
             color: #2c3e50;
-            font-size: 18px; /* 內文小標題 */
+            font-size: 18px; 
             font-weight: bold;
             margin-top: 20px;
             margin-bottom: 10px;
         }}
 
-        /* 內文文字 */
+        /* 內文 */
         .content-body {{
-            font-size: 16px; /* 確保內文一致 */
-            text-align: justify; /* 左右對齊 */
+            font-size: 16px; 
+            text-align: justify; 
         }}
         
         strong {{ color: #000; font-weight: 700; background-color: #fff3cd; padding: 0 4px; }}
@@ -113,45 +134,40 @@ html_content = f"""
     </style>
 </head>
 <body>
-    <h1>📈 個人美股戰情室 (Gemini 3.0 Pro)</h1>
-    <div style="text-align: center;">
-        <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
-        <span class="model-tag">🔥 Analysis Engine: {model_name}</span>
-    </div>
+    <h1>📈 個人美股戰情室</h1>
+    <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
 """
 
-print(f"🚀 使用次世代模型 {model_name} 開始生成報告...")
+print("🚀 開始執行排程分析...")
 
 for index, item in enumerate(prompts):
-    print(f"[{index+1}/{len(prompts)}] 正在深度分析：{item['title']}...")
-    try:
-        response = model.generate_content(item['query'])
-        
-        # 格式優化
-        text_content = response.text
-        # 將 Markdown 語法轉換為 HTML 標籤
-        text_content = text_content.replace("### ", "<h3>").replace("###", "</h3>")
-        text_content = text_content.replace("**", "<strong>").replace("* ", "<li>").replace("\n", "<br>")
-        
-        html_content += f"""
-        <div class="card">
-            <h2>{item['title']}</h2>
-            <div class="content-body">{text_content}</div>
-        </div>
-        """
-        print("   ✅ 分析完成")
-        
-    except Exception as e:
-        print(f"   ❌ 發生錯誤：{str(e)}")
-        html_content += f"<div class='card'><h2>{item['title']}</h2><p style='color:red; background:#ffe6e6; padding:10px;'>分析失敗：{str(e)}</p></div>"
-
+    print(f"[{index+1}/{len(prompts)}] 分析項目：{item['title']}...")
+    
+    # 呼叫智慧生成函數
+    result_text, used_model = smart_generate(item['query'])
+    
+    # 格式優化
+    result_text = result_text.replace("### ", "<h3>").replace("###", "</h3>")
+    result_text = result_text.replace("**", "<strong>").replace("* ", "<li>").replace("\n", "<br>")
+    
+    html_content += f"""
+    <div class="card">
+        <h2>
+            {item['title']}
+            <span class="model-badge">{used_model}</span>
+        </h2>
+        <div class="content-body">{result_text}</div>
+    </div>
+    """
+    
+    # 冷卻時間
     if index < len(prompts) - 1:
-        print("⏳ 等待 35 秒 (確保 3.0 Pro 連線穩定)...")
+        print("⏳ 等待 35 秒...")
         time.sleep(35)
 
 html_content += """
     <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #777; font-size: 14px;">
-        Generated by Google Gemini 3.0 Pro Preview | Automated via GitHub Actions
+        Automated by GitHub Actions | Powered by Google Gemini
     </footer>
 </body>
 </html>
@@ -160,4 +176,4 @@ html_content += """
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("🎉 3.0 Pro 戰情室報告生成完畢！")
+print("🎉 報告生成完畢！")
