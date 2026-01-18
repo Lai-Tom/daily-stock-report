@@ -4,6 +4,7 @@ from datetime import datetime
 import pytz
 import time
 import re
+import traceback
 
 # 設定 API Key
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
@@ -11,8 +12,7 @@ genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 # 取得台灣時間
 tw_time = datetime.now(pytz.timezone('Asia/Taipei')).strftime("%Y-%m-%d %H:%M")
 
-# --- 您的關注清單 (已更新為最新詳細版) ---
-# 為了讓表格正常顯示，我們稍後會自動在每個指令後加入「請用 HTML 輸出」的系統提示
+# --- 您的關注清單 ---
 prompts = [
     {
         "title": "🚀 LUNR (Intuitive Machines) 每日追蹤",
@@ -32,128 +32,115 @@ prompts = [
     }
 ]
 
-# --- 智慧生成函數 (含 HTML 格式優化) ---
+# --- 智慧生成函數 (三層救援機制) ---
 def smart_generate(prompt_text):
-    # 強制要求 AI 使用 HTML 格式輸出，這樣表格才會漂亮
-    system_instruction = "\n\n(重要技術要求：請直接以 HTML 程式碼格式輸出回答。不要使用 Markdown。請使用 <table> 製作表格，使用 <b> 標示重點，使用 <ul><li> 製作清單。請確保 HTML 語法正確，不需要 <html> 或 <body> 標籤，只要內容即可。)"
+    # 這是我們要嘗試的模型清單 (優先順序：3.0 Preview -> 2.5 Pro -> 2.0 Flash)
+    # 2.0 Flash 非常穩定，通常用來當作最後的救命稻草
+    model_candidates = [
+        ("gemini-3-pro-preview", "Gemini 3.0 Pro"),
+        ("gemini-2.5-pro", "Gemini 2.5 Pro"),
+        ("gemini-2.0-flash", "Gemini 2.0 Flash (救援版)")
+    ]
+    
+    # 加上 HTML 輸出指令
+    system_instruction = "\n\n(Technical Requirement: Output strictly in HTML format. Use <table> for data tables. Use <b> for headers. Do not use Markdown code blocks.)"
     full_query = prompt_text + system_instruction
 
-    # 優先嘗試 Gemini 3.0 Pro Preview
-    try:
-        model_3 = genai.GenerativeModel("gemini-3-pro-preview")
-        response = model_3.generate_content(full_query)
-        return clean_html(response.text), "Gemini 3.0 Pro Preview"
-    except Exception as e:
-        print(f"⚠️ 3.0 Preview 暫時不穩 ({e})，切換至 2.5 Pro 救援...")
-        # 救援：切換至 Gemini 2.5 Pro
+    last_error = ""
+
+    for model_name, display_name in model_candidates:
         try:
-            model_25 = genai.GenerativeModel("gemini-2.5-pro")
-            response = model_25.generate_content(full_query)
-            return clean_html(response.text), "Gemini 2.5 Pro (救援模式)"
-        except Exception as e2:
-            return f"<p style='color:red'>分析失敗：{e2}</p>", "Error"
+            print(f"   嘗試使用模型：{model_name}...")
+            model = genai.GenerativeModel(model_name)
+            response = model.generate_content(full_query)
+            
+            # 檢查是否有內容被攔截 (Safety Filter)
+            if not response.parts:
+                raise ValueError("AI 回傳空值 (可能是安全過濾導致)")
+                
+            return clean_html(response.text), display_name
+        except Exception as e:
+            print(f"   ⚠️ {model_name} 失敗：{e}")
+            last_error = str(e)
+            time.sleep(2) # 稍作休息再試下一個
+            continue # 嘗試下一個模型
+
+    # 如果三個都失敗，回傳錯誤訊息
+    return f"<p style='color:red; background:#fee; padding:10px;'>所有模型分析皆失敗。<br>最後錯誤原因：{last_error}</p>", "System Error"
 
 def clean_html(text):
-    # 清除 AI 可能會多加的 ```html 標籤
+    # 清除 Markdown 標籤
     text = re.sub(r"^```html", "", text, flags=re.MULTILINE)
     text = re.sub(r"^```", "", text, flags=re.MULTILINE)
     return text.strip()
 
-# --- 生成 HTML 網頁結構 ---
-html_content = f"""
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人美股戰情室</title>
-    <style>
-        /* 全域設定 */
-        body {{ 
-            font-family: "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            font-size: 16px; 
-            color: #333;
-            max-width: 950px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            background-color: #f4f7f6; 
-        }}
-        h1 {{ text-align: center; color: #003366; border-bottom: 3px solid #d32f2f; padding-bottom: 15px; margin-bottom: 10px; }}
-        .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }}
-        
-        /* 卡片設計 */
-        .card {{ 
-            background: white; 
-            padding: 30px; 
-            margin-bottom: 25px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-        }}
-        
-        /* 標題設計 */
-        h2 {{ 
-            color: #d32f2f; 
-            margin-top: 0; 
-            border-left: 5px solid #003366; 
-            padding-left: 15px; 
-            font-size: 22px; 
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }}
-        .model-badge {{ font-size: 12px; background: #eee; color: #666; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
+# --- 主程式 ---
+html_content = "" # 初始化
 
-        /* --- 針對您要求的表格與排版優化 --- */
-        table {{ width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 15px; }}
-        th {{ background-color: #003366; color: white; padding: 10px; text-align: left; }}
-        td {{ border: 1px solid #ddd; padding: 8px; }}
-        tr:nth-child(even) {{ background-color: #f9f9f9; }}
-        tr:hover {{ background-color: #f1f1f1; }}
+try:
+    # 預先寫入標頭，防止中間掛掉導致沒網頁
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>個人美股戰情室 V3.1</title>
+        <style>
+            body {{ font-family: "Microsoft JhengHei", sans-serif; line-height: 1.6; max-width: 950px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; color: #333; }}
+            h1 {{ text-align: center; color: #003366; border-bottom: 3px solid #d32f2f; padding-bottom: 15px; }}
+            .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }}
+            .card {{ background: white; padding: 30px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }}
+            h2 {{ color: #d32f2f; border-left: 5px solid #003366; padding-left: 15px; display: flex; justify-content: space-between; align-items: center; }}
+            .model-badge {{ font-size: 12px; background: #eee; color: #666; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
+            table {{ width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 15px; }}
+            th {{ background-color: #003366; color: white; padding: 10px; text-align: left; }}
+            td {{ border: 1px solid #ddd; padding: 8px; }}
+            tr:nth-child(even) {{ background-color: #f9f9f9; }}
+            b {{ color: #d32f2f; background-color: #fff3cd; }}
+        </style>
+    </head>
+    <body>
+        <h1>📈 個人美股戰情室 (V3.1 終極版)</h1>
+        <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
+    """
+
+    print("🚀 開始執行 V3.1 分析...")
+
+    for index, item in enumerate(prompts):
+        print(f"[{index+1}/{len(prompts)}] 分析項目：{item['title']}...")
         
-        b, strong {{ color: #d32f2f; background-color: #fff3cd; padding: 0 2px; }}
-        ul {{ padding-left: 20px; }}
-        li {{ margin-bottom: 6px; }}
-    </style>
-</head>
-<body>
-    <h1>📈 個人美股戰情室</h1>
-    <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
-"""
+        result_text, used_model = smart_generate(item['query'])
+        
+        html_content += f"""
+        <div class="card">
+            <h2>
+                {item['title']}
+                <span class="model-badge">{used_model}</span>
+            </h2>
+            <div class="content-body">{result_text}</div>
+        </div>
+        """
+        
+        if index < len(prompts) - 1:
+            print("⏳ 等待 30 秒...")
+            time.sleep(30)
 
-print("🚀 開始執行高階分析 (HTML 模式)...")
+except Exception as e:
+    print(f"❌ 嚴重錯誤：{traceback.format_exc()}")
+    html_content += f"<div class='card'><h2>系統發生嚴重錯誤</h2><pre>{traceback.format_exc()}</pre></div>"
 
-for index, item in enumerate(prompts):
-    print(f"[{index+1}/{len(prompts)}] 分析項目：{item['title']}...")
-    
-    # 呼叫智慧生成
-    result_text, used_model = smart_generate(item['query'])
-    
-    html_content += f"""
-    <div class="card">
-        <h2>
-            {item['title']}
-            <span class="model-badge">{used_model}</span>
-        </h2>
-        <div class="content-body">{result_text}</div>
-    </div>
+finally:
+    # 無論成功或失敗，最後一定要加上頁尾並存檔
+    html_content += """
+        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #777; font-size: 14px;">
+            Automated by GitHub Actions | V3.1 Stable
+        </footer>
+    </body>
+    </html>
     """
     
-    # 冷卻時間
-    if index < len(prompts) - 1:
-        print("⏳ 等待 35 秒...")
-        time.sleep(35)
-
-html_content += """
-    <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #777; font-size: 14px;">
-        Automated by GitHub Actions | Powered by Google Gemini
-    </footer>
-</body>
-</html>
-"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print("🎉 報告生成完畢！")
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    print("🎉 報告寫入完成 (V3.1)")
