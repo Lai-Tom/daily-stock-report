@@ -32,67 +32,51 @@ prompts = [
     }
 ]
 
-# --- 智慧生成函數 (三層救援機制) ---
+# --- V3.4 絕對保底邏輯 ---
 def smart_generate(prompt_text):
-    # 這是我們要嘗試的模型清單 (優先順序：3.0 Preview -> 2.5 Pro -> 2.0 Flash)
-    # 2.0 Flash 非常穩定，通常用來當作最後的救命稻草
-    model_candidates = [
-        ("gemini-3-pro-preview", "Gemini 3.0 Pro"),
-        ("gemini-2.5-pro", "Gemini 2.5 Pro"),
-        ("gemini-2.0-flash", "Gemini 2.0 Flash (救援版)")
-    ]
+    # 強制只使用 gemini-1.5-flash
+    # 這個模型每天有 1500 次免費額度，幾乎不可能爆
+    target_model = "gemini-1.5-flash"
     
-    # 加上 HTML 輸出指令
     system_instruction = "\n\n(Technical Requirement: Output strictly in HTML format. Use <table> for data tables. Use <b> for headers. Do not use Markdown code blocks.)"
     full_query = prompt_text + system_instruction
 
-    last_error = ""
-
-    for model_name, display_name in model_candidates:
-        try:
-            print(f"   嘗試使用模型：{model_name}...")
-            model = genai.GenerativeModel(model_name)
-            response = model.generate_content(full_query)
+    try:
+        print(f"   正在使用高額度模型：{target_model}...")
+        model = genai.GenerativeModel(target_model)
+        response = model.generate_content(full_query)
+        
+        if not response.parts:
+            return "<p>AI 回傳空值</p>", "No Data"
             
-            # 檢查是否有內容被攔截 (Safety Filter)
-            if not response.parts:
-                raise ValueError("AI 回傳空值 (可能是安全過濾導致)")
-                
-            return clean_html(response.text), display_name
-        except Exception as e:
-            print(f"   ⚠️ {model_name} 失敗：{e}")
-            last_error = str(e)
-            time.sleep(2) # 稍作休息再試下一個
-            continue # 嘗試下一個模型
-
-    # 如果三個都失敗，回傳錯誤訊息
-    return f"<p style='color:red; background:#fee; padding:10px;'>所有模型分析皆失敗。<br>最後錯誤原因：{last_error}</p>", "System Error"
+        return clean_html(response.text), "Gemini 1.5 Flash (V3.4 Stable)"
+    except Exception as e:
+        print(f"   ⚠️ 失敗：{e}")
+        return f"<p style='color:red; background:#fee; padding:10px;'>分析失敗。<br>錯誤訊息：{e}</p>", "Error"
 
 def clean_html(text):
-    # 清除 Markdown 標籤
     text = re.sub(r"^```html", "", text, flags=re.MULTILINE)
     text = re.sub(r"^```", "", text, flags=re.MULTILINE)
     return text.strip()
 
 # --- 主程式 ---
-html_content = "" # 初始化
+html_content = ""
 
 try:
-    # 預先寫入標頭，防止中間掛掉導致沒網頁
     html_content = f"""
     <!DOCTYPE html>
     <html lang="zh-TW">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>個人美股戰情室 V3.1</title>
+        <title>個人美股戰情室 V3.4</title>
         <style>
             body {{ font-family: "Microsoft JhengHei", sans-serif; line-height: 1.6; max-width: 950px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; color: #333; }}
             h1 {{ text-align: center; color: #003366; border-bottom: 3px solid #d32f2f; padding-bottom: 15px; }}
             .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }}
             .card {{ background: white; padding: 30px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }}
             h2 {{ color: #d32f2f; border-left: 5px solid #003366; padding-left: 15px; display: flex; justify-content: space-between; align-items: center; }}
-            .model-badge {{ font-size: 12px; background: #eee; color: #666; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
+            .model-badge {{ font-size: 12px; background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
             table {{ width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 15px; }}
             th {{ background-color: #003366; color: white; padding: 10px; text-align: left; }}
             td {{ border: 1px solid #ddd; padding: 8px; }}
@@ -101,15 +85,15 @@ try:
         </style>
     </head>
     <body>
-        <h1>📈 個人美股戰情室 (V3.1 終極版)</h1>
+        <h1>📈 個人美股戰情室 (V3.4 穩定版)</h1>
         <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
+        <p style="text-align:center; color:#2e7d32; font-size:12px;">✅ 目前使用高額度穩定模型 (1.5 Flash) 以確保連線</p>
     """
 
-    print("🚀 開始執行 V3.1 分析...")
+    print("🚀 開始執行 V3.4 分析 (強制使用 1.5 Flash)...")
 
     for index, item in enumerate(prompts):
         print(f"[{index+1}/{len(prompts)}] 分析項目：{item['title']}...")
-        
         result_text, used_model = smart_generate(item['query'])
         
         html_content += f"""
@@ -122,19 +106,19 @@ try:
         </div>
         """
         
+        # 即使是 Flash，我們還是稍微等一下比較保險
         if index < len(prompts) - 1:
-            print("⏳ 等待 30 秒...")
-            time.sleep(30)
+            print("⏳ 等待 10 秒...")
+            time.sleep(10)
 
 except Exception as e:
     print(f"❌ 嚴重錯誤：{traceback.format_exc()}")
     html_content += f"<div class='card'><h2>系統發生嚴重錯誤</h2><pre>{traceback.format_exc()}</pre></div>"
 
 finally:
-    # 無論成功或失敗，最後一定要加上頁尾並存檔
     html_content += """
         <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #777; font-size: 14px;">
-            Automated by GitHub Actions | V3.1 Stable
+            Automated by GitHub Actions | V3.4 Stable
         </footer>
     </body>
     </html>
@@ -143,4 +127,4 @@ finally:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
     
-    print("🎉 報告寫入完成 (V3.1)")
+    print("🎉 報告寫入完成 (V3.4)")
