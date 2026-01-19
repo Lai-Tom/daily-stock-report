@@ -32,27 +32,33 @@ prompts = [
     }
 ]
 
-# --- V3.4 絕對保底邏輯 ---
+# --- V3.5 邏輯：使用您帳號清單中的 2.5 Flash ---
 def smart_generate(prompt_text):
-    # 強制只使用 gemini-1.5-flash
-    # 這個模型每天有 1500 次免費額度，幾乎不可能爆
-    target_model = "gemini-1.5-flash"
+    # 根據您的截圖，1.5 已被淘汰，改用清單第一位的 2.5 Flash
+    target_model = "gemini-2.5-flash"
     
     system_instruction = "\n\n(Technical Requirement: Output strictly in HTML format. Use <table> for data tables. Use <b> for headers. Do not use Markdown code blocks.)"
     full_query = prompt_text + system_instruction
 
     try:
-        print(f"   正在使用高額度模型：{target_model}...")
+        print(f"   嘗試使用模型：{target_model}...")
         model = genai.GenerativeModel(target_model)
         response = model.generate_content(full_query)
         
         if not response.parts:
-            return "<p>AI 回傳空值</p>", "No Data"
+            return "<p>AI 回傳空值 (請稍後再試)</p>", "No Data"
             
-        return clean_html(response.text), "Gemini 1.5 Flash (V3.4 Stable)"
+        return clean_html(response.text), "Gemini 2.5 Flash"
     except Exception as e:
         print(f"   ⚠️ 失敗：{e}")
-        return f"<p style='color:red; background:#fee; padding:10px;'>分析失敗。<br>錯誤訊息：{e}</p>", "Error"
+        # 如果 2.5 Flash 也失敗，我們再試試看 'gemini-flash-latest' 這個通用別名
+        try:
+            print("   ⚠️ 2.5 Flash 失敗，嘗試通用別名 gemini-flash-latest...")
+            model_fallback = genai.GenerativeModel("gemini-flash-latest")
+            response = model_fallback.generate_content(full_query)
+            return clean_html(response.text), "Gemini Flash (Latest)"
+        except Exception as e2:
+            return f"<p style='color:red; background:#fee; padding:10px;'>分析失敗。<br>主因：{e}<br>備援失敗：{e2}</p>", "Error"
 
 def clean_html(text):
     text = re.sub(r"^```html", "", text, flags=re.MULTILINE)
@@ -69,14 +75,14 @@ try:
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>個人美股戰情室 V3.4</title>
+        <title>個人美股戰情室 V3.5</title>
         <style>
             body {{ font-family: "Microsoft JhengHei", sans-serif; line-height: 1.6; max-width: 950px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; color: #333; }}
             h1 {{ text-align: center; color: #003366; border-bottom: 3px solid #d32f2f; padding-bottom: 15px; }}
             .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }}
             .card {{ background: white; padding: 30px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }}
             h2 {{ color: #d32f2f; border-left: 5px solid #003366; padding-left: 15px; display: flex; justify-content: space-between; align-items: center; }}
-            .model-badge {{ font-size: 12px; background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
+            .model-badge {{ font-size: 12px; background: #e3f2fd; color: #1565c0; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
             table {{ width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 15px; }}
             th {{ background-color: #003366; color: white; padding: 10px; text-align: left; }}
             td {{ border: 1px solid #ddd; padding: 8px; }}
@@ -85,12 +91,12 @@ try:
         </style>
     </head>
     <body>
-        <h1>📈 個人美股戰情室 (V3.4 穩定版)</h1>
+        <h1>📈 個人美股戰情室 (V3.5 2026版)</h1>
         <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
-        <p style="text-align:center; color:#2e7d32; font-size:12px;">✅ 目前使用高額度穩定模型 (1.5 Flash) 以確保連線</p>
+        <p style="text-align:center; color:#1565c0; font-size:12px;">✅ 適配 2026 年模型架構 (Gemini 2.5 Flash)</p>
     """
 
-    print("🚀 開始執行 V3.4 分析 (強制使用 1.5 Flash)...")
+    print("🚀 開始執行 V3.5 分析 (目標模型: gemini-2.5-flash)...")
 
     for index, item in enumerate(prompts):
         print(f"[{index+1}/{len(prompts)}] 分析項目：{item['title']}...")
@@ -106,10 +112,9 @@ try:
         </div>
         """
         
-        # 即使是 Flash，我們還是稍微等一下比較保險
         if index < len(prompts) - 1:
-            print("⏳ 等待 10 秒...")
-            time.sleep(10)
+            print("⏳ 等待 15 秒...")
+            time.sleep(15)
 
 except Exception as e:
     print(f"❌ 嚴重錯誤：{traceback.format_exc()}")
@@ -118,7 +123,7 @@ except Exception as e:
 finally:
     html_content += """
         <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #777; font-size: 14px;">
-            Automated by GitHub Actions | V3.4 Stable
+            Automated by GitHub Actions | V3.5 Compatible
         </footer>
     </body>
     </html>
@@ -127,4 +132,4 @@ finally:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
     
-    print("🎉 報告寫入完成 (V3.4)")
+    print("🎉 報告寫入完成 (V3.5)")
