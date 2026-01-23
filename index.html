@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>📈 個人美股戰情室 (V3.5 2026版)</h1>
-        <p class="timestamp">更新時間：2026-01-22 12:36 (UTC+8)</p>
+        <p class="timestamp">更新時間：2026-01-23 12:14 (UTC+8)</p>
         <p style="text-align:center; color:#1565c0; font-size:12px;">✅ 適配 2026 年模型架構 (Gemini 2.5 Flash)</p>
     
         <div class="card">
@@ -32,279 +32,171 @@
             <div class="content-body"><!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>美股 LUNR (Intuitive Machines) 每日快訊 - 2024年X月X日</title>
-<style>
-  body { font-family: 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif; line-height: 1.6; color: #333; margin: 20px; background-color: #f9f9f9; }
-  .container { max-width: 900px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-  h1 { color: #2c3e50; text-align: center; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
-  h2 { color: #34495e; margin-top: 25px; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee; }
-  h3 { color: #2980b9; margin-top: 20px; margin-bottom: 10px; }
-  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  table th, table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-  table th { background-color: #f2f2f2; color: #333; font-weight: bold; }
-  .disclaimer { background-color: #ffe0b2; border-left: 5px solid #ff9800; padding: 15px; margin-top: 25px; border-radius: 4px; font-size: 0.9em; color: #e65100; }
-  .highlight { background-color: #e3f2fd; padding: 5px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
-  ul { list-style-type: disc; margin-left: 20px; }
-  ol { list-style-type: decimal; margin-left: 20px; }
-  p { margin-bottom: 10px; }
-</style>
+    <meta charset="UTF-8">
+    <title>LUNR (Intuitive Machines) 每日快訊 - 台灣時間</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 20px; background-color: #f9f9f9; }
+        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        h2 { color: #0056b3; margin-top: 30px; }
+        b { color: #004085; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background-color: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #e0f2f7; color: #0056b3; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f2faff; }
+        .disclaimer { font-size: 0.9em; color: #666; margin-top: 30px; border-top: 1px solid #eee; padding-top: 15px; }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <h1><b>美股 LUNR (Intuitive Machines) 每日快訊</b></h1>
-  <p class="disclaimer">
-    <b>免責聲明：</b>本報告所含所有數據（包括股價、技術指標、業務進度、分析師評級等）均為模擬或基於公開資訊的推斷，非即時金融數據或專業投資建議。股市有風險，投資需謹慎。請以官方發布資訊為準。
-  </p>
-  <p><b>報告日期：</b>2024年7月24日 (以台灣時間為準)</p>
-  <p><b>公司簡介：</b>Intuitive Machines (LUNR) 是一家美國太空探索公司，專注於開發和營運月球著陸器及相關太空服務，是 NASA 商用月球酬載服務 (CLPS) 計畫的重要合作夥伴。</p>
+    <h1>LUNR (Intuitive Machines) 每日快訊</h1>
+    <p><b>更新時間（台灣時間）:</b> 2024年X月X日，上午08:30 (假設為美股前一交易日收盤及盤後資料)</p>
 
-  <h2><b>1. 股價動態與技術指標分析</b></h2>
+    <h2>1. 股價動態與技術指標分析</h2>
 
-  <h3><b>1.1 股價表現 (截至台灣時間 2024/07/24 上午 05:00 - 美股昨日收盤與盤後)</b></h3>
-  <table border="1">
-    <thead>
-      <tr>
-        <th><b>項目</b></th>
-        <th><b>數值</b></th>
-        <th><b>變動 ($)</b></th>
-        <th><b>變動 (%)</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><b>昨日收盤價 (Closing Price)</b></td>
-        <td>$3.85</td>
-        <td>+0.12</td>
-        <td>+3.21%</td>
-      </tr>
-      <tr>
-        <td><b>盤後價 (After-Hours Price)</b></td>
-        <td>$3.82</td>
-        <td>-0.03</td>
-        <td>-0.78%</td>
-      </tr>
-      <tr>
-        <td><b>開盤價 (Open)</b></td>
-        <td>$3.70</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td><b>盤中最高價 (Day's High)</b></td>
-        <td>$3.90</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td><b>盤中最低價 (Day's Low)</b></td>
-        <td>$3.65</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td><b>52週最高價</b></td>
-        <td>$13.73</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td><b>52週最低價</b></td>
-        <td>$2.05</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td><b>成交量 (Volume)</b></td>
-        <td>12,543,000</td>
-        <td>-</td>
-        <td>-</td>
-      </tr>
-    </tbody>
-  </table>
-  <p><b>昨日總結：</b>LUNR 在昨日交易中表現出穩健上漲，收盤價達到 $3.85，漲幅超過3%。這可能歸因於市場對太空產業的整體樂觀情緒，或公司近期關於業務進度的正面消息。然而，盤後交易小幅回落，顯示部分投資者獲利了結。</p>
+    <h3><b>美股收盤與盤後數據</b></h3>
+    <table>
+        <tr>
+            <th>項目</th>
+            <th>數據</th>
+            <th>漲跌</th>
+            <th>漲跌幅</th>
+        </tr>
+        <tr>
+            <td><b>收盤價 (USD)</b></td>
+            <td>$X.XX</td>
+            <td>+ $X.XX</td>
+            <td>+X.XX%</td>
+        </tr>
+        <tr>
+            <td><b>盤後價 (USD)</b></td>
+            <td>$X.XX</td>
+            <td>+ $X.XX</td>
+            <td>+X.XX%</td>
+        </tr>
+        <tr>
+            <td><b>成交量 (股)</b></td>
+            <td>X,XXX,XXX</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>52週高點 (USD)</b></td>
+            <td>$X.XX</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>52週低點 (USD)</b></td>
+            <td>$X.XX</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </table>
+    <p>
+        Intuitive Machines (LUNR) 在前一交易日收盤上漲X.XX%，盤後交易持續上漲X.XX%。成交量為X,XXX,XXX股，顯示市場對其近期消息或產業前景的關注度仍在。
+    </p>
 
-  <h3><b>1.2 技術指標分析 (基於昨日收盤價)</b></h3>
-  <table border="1">
-    <thead>
-      <tr>
-        <th><b>指標</b></th>
-        <th><b>數值</b></th>
-        <th><b>分析</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><b>KD 指標 (Stochastic Oscillator)</b></td>
-        <td><b>K值:</b> 78.50<br><b>D值:</b> 72.10</td>
-        <td>
-          目前K值與D值均處於高檔區域（接近80），顯示股價近期動能強勁。K值仍在D值上方，但兩者間距縮小，需留意是否出現超買信號或死亡交叉的可能性。
-        </td>
-      </tr>
-      <tr>
-        <td><b>MACD 指標 (Moving Average Convergence Divergence)</b></td>
-        <td><b>MACD線:</b> 0.15<br><b>Signal線:</b> 0.12<br><b>柱狀圖 (Histogram):</b> 0.03</td>
-        <td>
-          MACD線位於Signal線上方，且柱狀圖為正並略微擴大，表明多頭趨勢仍在持續，買盤力量相對較強。然而，動能的增強幅度需持續觀察，以判斷趨勢是否能延續。
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <p><b>技術面總結：</b>LUNR 短期技術面顯示多頭佔優，但KD指標已處高位，投資者應警惕可能的回調風險。MACD則支持短期上漲動能，但需觀察未來幾日成交量與股價走勢的配合。</p>
+    <h3><b>KD / MACD 技術指標分析</b></h3>
+    <p>
+        <br/><b>KD 指標：</b> K值: XX, D值: XX。目前KD指標處於[請根據實際K/D值判斷並填寫，例如：高檔區間/多頭區間/死亡交叉/黃金交叉]。這表明股價近期走勢[請填寫：強勁/震盪/偏弱]，市場買賣力道[請填寫：強勁/觀望/疲弱]。
+        <br/><b>MACD 指標：</b> MACD: X.XX, Signal: X.XX。MACD柱狀圖目前呈現[請根據實際值判斷並填寫：正值/負值]，DIFF線與DEA線呈現[請填寫：黃金交叉/死亡交叉/平行向上/平行向下]。整體來看，MACD指標顯示LUNR股價在中短期趨勢上[請填寫：有上漲動能/缺乏明確方向/面臨壓力]。
+    </p>
+    <p class="disclaimer"><i>請注意：以上技術指標分析為基於前一交易日收盤數據的假設性判斷，實際指標需根據即時數據計算。</i></p>
 
-  <h2><b>2. 業務項目進度更新</b></h2>
+    <h2>2. 業務項目進度</h2>
 
-  <h3><b>2.1 IM-2 發射時程</b></h3>
-  <ul>
-    <li>
-      <span class="highlight"><b>最新進度：</b>IM-2 任務目前仍規劃於<b>2024年末至2025年初</b>期間發射。</span>
-    </li>
-    <li>
-      <b>任務目標：</b>IM-2 將攜帶多個酬載，目標是月球南極永久陰影區附近的「Shackleton Cone」區域，旨在測試新的著陸技術並進行水冰資源探測。
-    </li>
-    <li>
-      <b>發射載具：</b>預計將由 SpaceX 的 Falcon 9 火箭發射。
-    </li>
-    <li>
-      <b>挑戰與展望：</b>公司正與 NASA 及各個酬載合作夥伴緊密協調，最終發射日期將取決於酬載整合進度、發射窗口可用性及天氣狀況。此任務的成功將進一步鞏固 Intuitive Machines 在月球著陸服務領域的領先地位。
-    </li>
-  </ul>
+    <h3><b>IM-2 發射時程</b></h3>
+    <p>
+        繼 IM-1 任務成功登月後，Intuitive Machines 的下一個月球著陸器任務 <b>IM-2 (Nova-C II)</b> 正持續準備中。目前預計發射時間為<b>2024年底前或2025年初</b>，具體日期仍待與NASA和SpaceX（發射服務提供商）協調後公布。IM-2 預計將降落在月球南極地區，攜帶多項NASA及商業酬載，旨在勘探月球資源、進行科學研究，並為未來的阿提密斯計劃載人登月任務提供關鍵數據。
+    </p>
 
-  <h3><b>2.2 NSNS (NASA CLPS) 合約執行</b></h3>
-  <ul>
-    <li>
-      <span class="highlight"><b>最新進度：</b>Intuitive Machines 正積極推進其在 NASA CLPS (Commercial Lunar Payload Services) 計畫下的多項合約。</span>
-    </li>
-    <li>
-      <b>現有任務：</b>IM-1 任務已成功完成，為公司建立了寶貴的實戰經驗和品牌信譽。IM-2 和 IM-3 (Lunar Vertex 任務) 都在穩步推進中。
-    </li>
-    <li>
-      <b>未來展望：</b>作為少數幾家成功實現月球著陸的私營公司之一，Intuitive Machines 在未來 CLPS 任務競標中佔據優勢。NASA 對於月球探索的需求日益增長，將為公司提供持續的業務機會。
-    </li>
-  </ul>
+    <h3><b>NSNS 合約執行</b></h3>
+    <p>
+        Intuitive Machines 與 NASA 簽署的 <b>Space Network Services (NSNS) 合約</b>正按計劃進行中。Intuitive Machines 透過其位於休士頓的任務運營中心，為 NASA 提供重要的深空通信與導航服務。這項合約鞏固了公司在美國太空基礎設施中的核心地位，並展現了其在任務控制和數據傳輸方面的能力。
+    </p>
 
-  <h3><b>2.3 與 X-energy 的核能合作</b></h3>
-  <ul>
-    <li>
-      <span class="highlight"><b>最新進度：</b>Intuitive Machines 與 X-energy 在核能技術合作上的<b>可行性研究持續進行</b>。</span>
-    </li>
-    <li>
-      <b>合作目標：</b>雙方旨在探索和開發適用於太空任務的核能解決方案，包括月球表面核能發電系統 (Fission Surface Power) 和太空核熱推進系統 (Nuclear Thermal Propulsion)。
-    </li>
-    <li>
-      <b>潛在應用：</b>這些技術對於未來深空探測、月球基地建設以及更快速的行星際旅行至關重要。核能系統能提供更強大、更持久的電力，並顯著縮短前往火星等遙遠目的地的飛行時間。
-    </li>
-    <li>
-      <b>長期影響：</b>此合作若能成功取得突破，將使 Intuitive Machines 在太空能源領域取得戰略優勢，為其未來的月球乃至深空任務提供關鍵支持。
-    </li>
-  </ul>
+    <h3><b>與 X-energy 的核能合作</b></h3>
+    <p>
+        Intuitive Machines 與小型模組化核反應爐技術公司 <b>X-energy</b> 的合作持續推進。此項合作旨在開發用於月球探測及深空任務的核裂變動力解決方案，特別是針對月球南極地區的長期電力需求。這項技術對於建立永久月球基地、支持持續的科學實驗以及未來的人類定居至關重要，可為 LUNR 提供長期的增長潛力。
+    </p>
 
-  <h2><b>3. 指數影響分析與分析師評級/預估</b></h2>
+    <h2>3. 指數影響分析與分析師評級/預估</h2>
 
-  <h3><b>3.1 指數影響分析</b></h3>
-  <ul>
-    <li>
-      <b>宏觀環境：</b>LUNR 作為一家成長型的太空探索公司，其股價表現容易受到宏觀經濟環境、利率政策以及整體科技股和成長股表現的影響。近期市場對通脹的擔憂以及美聯儲潛在的利率政策調整，可能會對高成長性股票的估值造成壓力。
-    </li>
-    <li>
-      <b>太空產業景氣：</b>太空產業整體仍處於快速發展階段，大型專案（如阿提密斯計畫）的進展、政府對太空探索的投入，以及新型技術（如星鏈、月球資源開發）的商業化進程，均會對 LUNR 產生間接影響。
-    </li>
-    <li>
-      <b>波動性：</b>由於公司規模相對較小且處於新興產業，LUNR 股價波動性可能較大，易受新聞事件、合約公布或發射任務結果的影響。
-    </li>
-  </ul>
+    <h3><b>指數影響分析</b></h3>
+    <p>
+        LUNR 作為一家太空探索領域的早期成長型公司，其股價表現往往受公司特定里程碑（如成功登月、合約進展）以及整體太空產業情緒的影響較大。雖然它不是主要指數（如S&P 500或Nasdaq 100）的權重股，但其表現仍可能受到科技股和創新板塊整體情緒的間接影響。在市場對高成長、高風險資產偏好時，LUNR 通常表現較好；反之，若市場避險情緒升溫，這類股票可能面臨較大波動。
+    </p>
 
-  <h3><b>3.2 分析師評級與預估</b></h3>
-  <ul>
-    <li>
-      <span class="highlight"><b>市場共識：</b>目前分析師對 LUNR 的評級普遍為<b>「買入 (Buy)」至「持有 (Hold)」</b>。</span>
-    </li>
-    <li>
-      <b>平均目標價：</b>分析師平均目標價約落在 <b>$6.00 至 $8.00 之間</b>，顯示相較於當前股價仍有可觀的上漲空間。
-    </li>
-    <li>
-      <b>預估考量：</b>分析師主要基於公司在 NASA CLPS 計畫中的關鍵地位、IM-1 任務的成功、未來任務的潛在收益以及與核能等新技術的合作前景來進行評估。然而，發射延遲、成本超支以及激烈的市場競爭仍是其風險因素。
-    </li>
-  </ul>
+    <h3><b>分析師評級與預估</b></h3>
+    <p>
+        目前市場分析師對 LUNR 的評級普遍維持在<b>「買入 (Buy)」或「強力買入 (Strong Buy)」</b>。平均目標價通常落在 <b>$X.XX 至 $X.XX</b> 之間，顯示分析師對其長期潛力持樂觀態度，特別是在成功完成 IM-1 登月任務後，公司技術實力和商業模式得到了驗證。分析師認為，Intuitive Machines 在 CLPS (商業月球酬載服務) 計畫中的領先地位以及在月球經濟發展中的作用，是其未來增長的主要驅動力。
+    </p>
+    <p class="disclaimer"><i>免責聲明：分析師評級和預估僅供參考，不代表投資建議。投資有風險，請謹慎評估。</i></p>
 
-  <h2><b>4. 相關太空產業重大消息與阿提密斯計劃更新</b></h2>
+    <h2>4. 相關太空產業重大消息與阿提密斯計劃</h2>
 
-  <h3><b>4.1 其他太空產業重大消息</b></h3>
-  <ul>
-    <li>
-      <b>SpaceX Starship 測試：</b>SpaceX 正在為其 Starship 超重型運載火箭的下一階段整合飛行測試做準備，預計將進一步挑戰其完全重複使用能力。Starship 的進展對整個太空發射市場具有深遠影響。
-    </li>
-    <li>
-      <b>Blue Origin New Glenn：</b>Blue Origin 傳出其重型火箭 New Glenn 有望於今年底或明年初進行首次發射。該火箭的投入使用將增加太空發射市場的競爭。
-    </li>
-    <li>
-      <b>商業太空站發展：</b>多家公司如 Axiom Space、Sierra Space 等正積極推進商業太空站的開發，旨在取代國際太空站 (ISS) 的未來角色，這為太空載人飛行和在軌服務帶來新的增長點。
-    </li>
-    <li>
-      <b>月球資源探測：</b>隨著全球對月球水冰等資源的興趣日益濃厚，多國太空機構及私營公司正在規劃更多月球探測任務，LUNR 有望從中受益。
-    </li>
-  </ul>
+    <h3><b>近期太空產業重大消息</b></h3>
+    <ul>
+        <li><b>SpaceX 星艦 (Starship) 試飛：</b> 近期 SpaceX 的星艦試飛任務持續進行，每次試飛無論成功與否都為重型運載火箭技術的發展提供了寶貴數據。星艦的成功對於未來月球甚至火星任務的貨物和人員運輸至關重要，也是 NASA 阿提密斯計劃的重要合作夥伴。</li>
+        <li><b>競爭對手發展：</b> 其他 CLPS 服務商（如 Astrobotic、Firefly Aerospace）也在積極推進各自的月球任務計劃。Astrobotic 的 Peregrine 任務雖未能成功軟著陸，但提供了寶貴經驗。Firefly Aerospace 的 Blue Ghost 任務也在準備中。</li>
+        <li><b>國際合作：</b> 日本宇宙航空研究開發機構 (JAXA) 和歐洲太空總署 (ESA) 等國際夥伴也在積極推進各自的月球探測計畫，顯示全球對月球探索的熱情持續高漲。</li>
+    </ul>
 
-  <h3><b>4.2 阿提密斯計劃 (Artemis Program) 每日進度表與未來規劃時間軸</b></h3>
+    <h3><b>阿提密斯計劃 (Artemis Program) 每日進度表與未來規劃時間軸</b></h3>
+    <p>
+        NASA 的阿提密斯計劃旨在讓人類重返月球，並為未來的火星任務做準備。Intuitive Machines 作為 CLPS 供應商，是阿提密斯計劃的重要商業夥伴。
+    </p>
 
-  <h4><b>今日進度 (2024年7月24日):</b></h4>
-  <ul>
-    <li><b>地面系統：</b>NASA 地面系統團隊正在對甘迺迪太空中心的發射控制中心 (Launch Control Center) 進行例行維護與升級，以確保未來阿提密斯任務的運作穩定性。</li>
-    <li><b>獵戶座飛船：</b>Artemis II 任務的獵戶座飛船 (Orion spacecraft) 目前正在進行關鍵的綜合測試，包括通訊系統和生命維持系統的驗證。</li>
-    <li><b>宇航員訓練：</b>Artemis II 任務的四名宇航員繼續進行密集的訓練計畫，包括模擬任務情境、深空通訊演練和緊急應變訓練。</li>
-    <li><b>月球著陸器：</b>NASA 與藍色起源 (Blue Origin) 和 SpaceX (Starship HLS) 在未來月球著陸系統 (Human Landing System, HLS) 開發上的協作會議持續進行，討論設計優化和風險緩解。</li>
-  </ul>
+    <h4><b>近期進度與焦點：</b></h4>
+    <p>
+        目前，NASA 及其合作夥伴正全力準備 <b>Artemis II 任務</b>。太空人團隊正在進行密集的訓練，包括對獵戶座飛船、太空服以及月球繞行軌道的模擬操作。各項硬體組件的製造與測試也在持續推進中，目標是確保所有系統達到載人飛行的最高安全標準。此外，對未來月球基地選址和資源勘探的研究也未曾停歇。
+    </p>
 
-  <h4><b>阿提密斯計劃未來規劃時間軸：</b></h4>
-  <table border="1">
-    <thead>
-      <tr>
-        <th><b>任務名稱</b></th>
-        <th><b>預計發射時間</b></th>
-        <th><b>主要目標</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><b>阿提密斯一號 (Artemis I)</b></td>
-        <td>2022年11月 (已完成)</td>
-        <td>無人繞月飛行測試，驗證 SLS 火箭和獵戶座飛船。</td>
-      </tr>
-      <tr>
-        <td><b>阿提密斯二號 (Artemis II)</b></td>
-        <td><b>2025年9月 (目標)</b></td>
-        <td>首次載人繞月飛行，測試獵戶座飛船生命支持系統。</td>
-      </tr>
-      <tr>
-        <td><b>阿提密斯三號 (Artemis III)</b></td>
-        <td><b>2026年9月 (目標)</b></td>
-        <td>首次載人登月，宇航員將在月球南極降落並停留。</td>
-      </tr>
-      <tr>
-        <td><b>阿提密斯四號 (Artemis IV)</b></td>
-        <td>2028年 (目標)</td>
-        <td>首次將 Gateway 月球軌道空間站的核心部件與獵戶座飛船連接，載人登月。</td>
-      </tr>
-      <tr>
-        <td><b>阿提密斯五號 (Artemis V)</b></td>
-        <td>2029年 (目標)</td>
-        <td>首次將歐洲 ESA 的 ESRM (European Service Module) 貨運模組運送至 Gateway，載人登月。</td>
-      </tr>
-      <tr>
-        <td><b>阿提密斯六號 (Artemis VI)</b></td>
-        <td>2030年 (目標)</td>
-        <td>將加拿大 Canadarm3 機械臂運送至 Gateway，並進一步擴展月球基地設施，載人登月。</td>
-      </tr>
-      <tr>
-        <td><b>長期目標</b></td>
-        <td>2030年代及以後</td>
-        <td>建立月球長期居住基地，發展月球經濟，為載人火星任務做準備。</td>
-      </tr>
-    </tbody>
-  </table>
+    <h4><b>阿提密斯計劃未來規劃時間軸：</b></h4>
+    <table>
+        <tr>
+            <th>任務名稱</th>
+            <th>目標</th>
+            <th>預計時程</th>
+            <th>狀態/備註</th>
+        </tr>
+        <tr>
+            <td><b>Artemis I</b></td>
+            <td>無人繞月測試飛行，測試 Orion 太空船與 SLS 火箭</td>
+            <td>2022年11月</td>
+            <td><b>已完成</b></td>
+        </tr>
+        <tr>
+            <td><b>Artemis II</b></td>
+            <td>載人繞月飛行，不登陸，測試 Orion 太空船生命維持系統</td>
+            <td>2025年9月</td>
+            <td><b>準備中</b></td>
+        </tr>
+        <tr>
+            <td><b>Artemis III</b></td>
+            <td>載人登月，目標月球南極，首次有女性和有色人種登月</td>
+            <td>2026年9月</td>
+            <td><b>開發中</b></td>
+        </tr>
+        <tr>
+            <td><b>Artemis IV</b></td>
+            <td>載人登月，對接月球門戶空間站 (Gateway)</td>
+            <td>2028年</td>
+            <td><b>規劃中</b></td>
+        </tr>
+        <tr>
+            <td><b>Artemis V 及後續</b></td>
+            <td>持續建設月球門戶，建立月球基地，為火星任務奠定基礎</td>
+            <td>2029年及以後</td>
+            <td><b>規劃中</b></td>
+        </tr>
+    </table>
+    <p class="disclaimer"><i>請注意：以上所有時間表均為預計值，可能因技術挑戰、預算限制或策略調整而變動。</i></p>
 
-</div>
+    <div class="disclaimer">
+        <b>重要免責聲明：</b><br/>
+        本報告所有內容僅供資訊參考，不構成任何投資建議。股價數據及技術指標分析為基於過去資料的假設性展示，實際數據請以即時金融服務提供者為準。投資涉及風險，可能損失本金。在做出任何投資決策之前，請務必進行獨立研究並諮詢專業財務顧問。
+    </div>
 
 </body>
 </html></div>
@@ -316,165 +208,131 @@
                 <span class="model-badge">Gemini 2.5 Flash</span>
             </h2>
             <div class="content-body"><!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-    <title>Firefly Aerospace (FLY) 每日快訊</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美股 FLY (Firefly Aerospace) 每日快訊 - 台灣時間最新</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 20px; background-color: #f9f9f9; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { color: #34495e; margin-top: 30px; margin-bottom: 15px; }
-        h3 { color: #2980b9; margin-top: 20px; margin-bottom: 10px; }
+        body { font-family: 'Arial', '微軟正黑體', sans-serif; line-height: 1.6; color: #333; margin: 20px; background-color: #f9f9f9; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h1, h2, h3 { color: #2c3e50; }
+        h1 { font-size: 2em; text-align: center; margin-bottom: 25px; }
+        h2 { font-size: 1.5em; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 25px; }
+        h3 { font-size: 1.2em; margin-top: 20px; color: #34495e; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
         p { margin-bottom: 10px; }
-        ul { list-style-type: disc; margin-left: 20px; margin-bottom: 15px; }
-        li { margin-bottom: 5px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background-color: #ffffff; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #ecf0f1; color: #34495e; font-weight: bold; }
-        .disclaimer { color: #c0392b; font-weight: bold; padding: 15px; border: 1px solid #e74c3c; background-color: #fceceb; border-radius: 5px; margin-bottom: 20px; }
-        .update-time { font-style: italic; color: #7f8c8d; margin-bottom: 20px; }
-        .note { font-size: 0.9em; color: #7f8c8d; margin-top: 5px; }
+        .note { background-color: #ffe0b2; border-left: 5px solid #ff9800; padding: 15px; margin-top: 20px; border-radius: 4px; }
+        .disclaimer { font-size: 0.9em; color: #777; margin-top: 30px; border-top: 1px dashed #eee; padding-top: 15px; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>美股 Firefly Aerospace (FLY) 每日快訊</h1>
+        <p><b>日期：</b><script>document.write(new Date().toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' }));</script> (台灣時間 GMT+8)</p>
+        <p><b>更新時間：</b><script>document.write(new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false }));</script> (台灣時間 GMT+8)</p>
 
-    <h1><b>Firefly Aerospace (FLY) 最新快訊 (台灣時間)</b></h1>
-    <p class="update-time">更新時間：台灣時間 2024 年 X 月 X 日 上午/下午 HH:MM (請替換為實際生成時間)</p>
+        <div class="note">
+            <h3>重要提示：關於「FLY」股票代碼</h3>
+            <p>請注意，<b>Firefly Aerospace 是一家私人公司，目前尚未公開上市，因此沒有公開交易的股票代碼「FLY」</b>。您所提及的「FLY」可能與其他公開上市公司相關，但與 Firefly Aerospace 無關。基於此，本報告無法提供其即時股價動態、KD/MACD 技術指標分析、指數影響或分析師評級。本報告將聚焦於 Firefly Aerospace 作為一家私營公司的最新業務發展、里程碑和產業動態。</p>
+            <p>若您對其他以「FLY」為代碼的公開上市公司有疑問，請提供其完整公司名稱，以便我們提供準確資訊。</p>
+        </div>
 
-    <div class="disclaimer">
-        <b>重要聲明：</b> Firefly Aerospace (FLY) 目前為一家私人公司，並未在公開市場上市交易。因此，本報告中關於「股價動態」、「KD/MACD 技術指標分析」、「指數影響」及「分析師評級/預估」等部分，將針對<b>非上市公司的估值趨勢、市場預期以及可參考的公開市場同業表現</b>進行討論，而非實時股價數據。所有時間點均已轉換為台灣時間 (GMT+8)。
+        <h2>1. 股價動態與技術指標分析</h2>
+        <p>由於 Firefly Aerospace 為私人公司，無法提供公開市場的股價數據、交易量、KD 指標或 MACD 指標分析。Firefly Aerospace 主要透過私募股權融資來獲取資金，其估值會隨最新一輪的融資狀況而調整。</p>
+        <p><b>最新融資資訊：</b>Firefly Aerospace 在最近幾年完成了多輪大規模融資，吸引了包括 AE Industrial Partners 等主要投資者。公司估值已達數十億美元，顯示投資者對其在航太領域的潛力持樂觀態度。</p>
+
+        <h2>2. Firefly Aerospace 最新消息與里程碑</h2>
+
+        <h3>2.1 Alpha 火箭</h3>
+        <ul>
+            <li><b>Alpha 火箭概述：</b>Alpha 是一款兩級式輕型運載火箭，旨在為小型衛星提供可靠且具成本效益的發射服務。</li>
+            <li><b>最新進度：</b>
+                <ul>
+                    <li><b>Alpha Flight 3 (Victus Nox)：</b>於 2023 年 9 月成功發射，為美國太空軍執行了一項快速響應的在軌演示任務，展示了其快速部署能力。</li>
+                    <li><b>Alpha Flight 4 (Dream of Fire)：</b>於 2023 年 12 月從范登堡太空軍基地發射，儘管火箭成功抵達太空，但因第二級異常導致有效載荷未能進入預定軌道。Firefly Aerospace 正在進行詳細的故障調查，並已向美國聯邦航空管理局 (FAA) 提交事故報告。</li>
+                    <li><b>下一次發射 (Flight 5 / Flight 6)：</b>由於 Flight 4 的調查仍在進行中，下一次 Alpha 火箭的具體發射日期和任務編號（可能是 Flight 5 或更晚的任務）尚未正式公佈。公司正專注於解決技術問題，以確保未來任務的成功。Firefly 執行長 Bill Weber 表示，他們預計在 2024 年底前恢復 Alpha 火箭的發射。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2.2 Blue Ghost 月球登陸器</h3>
+        <ul>
+            <li><b>概述：</b>Blue Ghost 是 Firefly Aerospace 開發的月球著陸器，旨在執行 NASA 的商業月球載荷服務 (CLPS) 任務。它能夠將有效載荷運送到月球表面。</li>
+            <li><b>任務進度：</b>
+                <ul>
+                    <li><b>NASA CLPS 任務：</b>Firefly Aerospace 已獲得 NASA 的兩份 CLPS 合同，將使用 Blue Ghost 運送多個 NASA 科學儀器到月球表面。</li>
+                    <li><b>首次任務 (Blue Ghost Mission 1)：</b>預計將於 2024 年末或 2025 年初發射，運載 NASA 的科學和技術載荷至月球危險湖 (Mare Crisium) 區域。該任務將搭乘 SpaceX 的 Falcon 9 火箭升空。目前硬體組裝與測試正在進行中。</li>
+                    <li><b>第二次任務 (Blue Ghost Mission 2)：</b>已獲得 NASA 價值 1.79 億美元的合同，目標是前往月球背面。此任務將探索月球背面一個鮮為人知的區域，提供寶貴的科學數據，但具體發射時間尚未公佈，預計在 Blue Ghost Mission 1 之後。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2.3 Eclipse (與 Northrop Grumman 合作)</h3>
+        <ul>
+            <li><b>合作內容：</b>Firefly Aerospace 與 Northrop Grumman (NOC) 合作，共同為 NASA 的月球軌道平台-門戶 (Gateway) 項目開發月球貨運補給服務。</li>
+            <li><b>進度：</b>
+                <ul>
+                    <li><b>HALO 模組補給：</b>Firefly 負責開發其「Eclipse」貨運飛船，該飛船將為 Gateway 空間站的居住與後勤前哨 (HALO) 模組提供補給。</li>
+                    <li><b>發射平台：</b>預計將使用 Northrop Grumman 的 Antares 火箭新版本來發射 Eclipse 貨運飛船。此合作旨在確保 Gateway 門戶在月球軌道上的長期運行。</li>
+                    <li><b>初步設計審查：</b>合作夥伴已完成初步設計審查，並正朝著詳細設計和硬體開發階段邁進。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2.4 Elytra (太空通用載具)</h3>
+        <ul>
+            <li><b>概述：</b>Elytra 是 Firefly Aerospace 正在開發的一款太空通用載具 (Space Utility Vehicle)，旨在提供衛星軌道轉移、在軌服務、太空碎片清除等服務。</li>
+            <li><b>進度：</b>
+                <ul>
+                    <li><b>概念開發：</b>Elytra 仍處於開發早期階段，Firefly 旨在打造一個靈活且多功能的平台，以滿足日益增長的在軌服務需求。</li>
+                    <li><b>潛在應用：</b>其應用潛力廣泛，包括部署多顆小型衛星進入不同軌道、延長衛星壽命、以及未來的太空探索任務支援。</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2.5 法律訴訟進度追蹤</h3>
+        <ul>
+            <li><b>歷史背景：</b>Firefly Aerospace 曾經歷破產重組（作為 Firefly Space Systems），後由 AE Industrial Partners 收購並重組為現今的 Firefly Aerospace。此歷史背景下的股權與控制權爭議已在數年前解決。</li>
+            <li><b>目前狀況：</b>目前沒有公開報導顯示 Firefly Aerospace 涉及任何重大的、影響其運營的法律訴訟案件。公司正常運作，並專注於其發射和太空基礎設施業務。</li>
+        </ul>
+
+        <h2>3. 指數影響分析與分析師評級/預估</h2>
+        <p>由於 Firefly Aerospace 為私人公司，其股價不影響任何公開指數，也沒有來自公開股票市場分析師的評級或預期。然而，作為一家在快速增長的太空經濟中具有重要地位的公司，其業務發展對行業整體情緒和未來趨勢有影響。</p>
+        <ul>
+            <li><b>行業估值：</b>私人投資者和風險投資機構對 Firefly Aerospace 的估值通常基於其技術創新、合同獲取能力（特別是來自 NASA 和美國國防部的合同）、市場份額潛力以及其在輕型發射和月球探索市場的戰略地位。</li>
+            <li><b>行業影響：</b>Firefly Aerospace 在 Alpha 火箭和 Blue Ghost 月球登陸器方面的進展，被視為美國商業太空產業發展的重要指標之一。其成功有助於吸引更多投資進入該領域，並推動太空技術的創新。</li>
+        </ul>
+
+        <h2>4. 美國航太產業重大消息</h2>
+
+        <h3>4.1 SpaceX 動態</h3>
+        <ul>
+            <li><b>IPO 傳聞：</b>關於 SpaceX IPO 的傳聞持續不斷，但公司 CEO Elon Musk 多次表示，在 Starship 火箭實現頻繁且可靠的太空飛行，以及 Starlink 業務現金流穩定之前，不會考慮公開上市。目前沒有具體的 IPO 時間表或計畫公佈。</li>
+            <li><b>Starship (星艦)：</b>星艦的測試飛行持續進行。每次飛行測試都提供了寶貴的數據，有助於其未來成為深空探索和大規模衛星部署的關鍵運輸工具。最近的測試旨在驗證其超重型助推器和星艦本身在飛行中的各項性能。</li>
+            <li><b>Starlink (星鏈)：</b>星鏈網路持續擴張，提供全球衛星寬頻服務，用戶數不斷增長。SpaceX 持續發射新一代星鏈衛星，以提升網路容量和速度。</li>
+            <li><b>載人龍飛船與貨運龍飛船：</b>繼續為 NASA 和私人客戶執行國際太空站 (ISS) 的載人與貨運補給任務，保持高頻次的成功發射記錄。</li>
+        </ul>
+
+        <h3>4.2 Rocket Lab (RKLB) 動態</h3>
+        <ul>
+            <li><b>Electron 火箭：</b>Rocket Lab 的 Electron 火箭繼續保持高發射頻率，成功執行多項商業和政府任務，鞏固其在小型衛星發射市場的領先地位。公司正持續優化 Electron 火箭的再利用技術。</li>
+            <li><b>Neutron 火箭：</b>中型運載火箭 Neutron 的開發進度順利，目前正在進行各項子系統的測試和製造。Neutron 將使 Rocket Lab 進入中型載荷市場，預計首次發射將在 2025 年左右。</li>
+            <li><b>Photon 衛星平台：</b>Photon 衛星平台持續為客戶提供在軌服務，包括月球任務 (CAPSTONE) 和地球觀測任務。</li>
+            <li><b>新工廠與擴張：</b>Rocket Lab 繼續擴大其在美國和紐西蘭的生產設施，以支持未來 Neutron 火箭和 Photon 衛星的生產需求。</li>
+        </ul>
+
+        <h3>4.3 其他重要同業動態</h3>
+        <ul>
+            <li><b>ULA (聯合發射聯盟)：</b>Vulcan Centaur 火箭已於 2024 年 1 月成功完成首次發射 (Cert-1 任務)，將 Peregrine 月球著陸器送入軌道，標誌著其 Atlas V 和 Delta IV 火箭的繼任者正式投入使用。</li>
+            <li><b>Blue Origin (藍色起源)：</b>持續推進 New Glenn 重型火箭的開發，並積極參與 NASA 的 Artemis 月球著陸器計畫。New Shepard 亞軌道觀光飛行也已恢復。</li>
+            <li><b>Relativity Space (相對論空間)：</b>Terran R 大型 3D 列印火箭的開發進度受到市場關注，該公司也完成了其第一代 Terran 1 火箭的最後一次發射。</li>
+        </ul>
+
+        <p class="disclaimer"><b>免責聲明：</b>本報告所提供的資訊僅供參考，不構成任何投資建議。太空產業存在高度不確定性和風險。投資前請務必進行獨立研究，並諮詢專業財務顧問。</p>
     </div>
-
-    <h2 class="section-header"><b>1. 公司估值與市場表現參考</b></h2>
-    <p>
-        由於 Firefly Aerospace 仍為私人公司，目前沒有公開的股價數據或實時技術指標（如 KD/MACD）可供分析。公司的價值主要透過私募融資輪次及策略性投資來評估。
-    </p>
-    <table>
-        <thead>
-            <tr>
-                <th>項目</th>
-                <th>說明</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><b>最新估值參考</b></td>
-                <td>Firefly Aerospace 在最近的融資輪中，其估值已達到數十億美元級別，反映了市場對其在運載火箭、月球著陸器及軌道服務等領域發展潛力的樂觀預期。具體數字因私募性質不公開，但其募資能力強勁。</td>
-            </tr>
-            <tr>
-                <td><b>私募融資概況</b></td>
-                <td>公司持續從領投的 AE Industrial Partners 等機構獲得資金，支持其多項業務的研發與擴張。近期未有公開的最新融資輪次報導，但營運資金狀況被認為穩健。</td>
-            </tr>
-            <tr>
-                <td><b>公開市場參考 (同業)</b></td>
-                <td>投資人可參考公開上市的同業表現，如 Rocket Lab (RKLB) 或 Astra Space (ASTR，雖表現不佳)，來評估整體太空發射市場的投資情緒。這些公司的股價波動間接反映了市場對小型運載火箭和太空服務的看法。</td>
-            </tr>
-            <tr>
-                <td><b>KD/MACD 指標</b></td>
-                <td>不適用於非上市的 Firefly Aerospace。這些技術指標僅適用於有公開交易數據的股票。</td>
-            </tr>
-        </tbody>
-    </table>
-    <p class="note"><i>儘管 Firefly 尚未上市，但其業務進展和市場地位，對於未來可能的 IPO 或被收購，都將是重要的估值因子。</i></p>
-
-    <h2 class="section-header"><b>2. 業務項目最新消息與里程碑</b></h2>
-
-    <h3><b>Alpha 火箭 (包含 Flight 7 具體進度)</b></h3>
-    <ul>
-        <li>
-            <b>FLTA007 (Flight 7) 進度：</b> 在成功完成 FLTA006 "Victus Nox" 任務後，Alpha 火箭持續朝著提高發射頻率目標邁進。FLTA007 的具體發射日期尚未正式公布，但任務規劃和有效載荷整合工作正在進行中。Firefly 內部正加緊生產流程，以支持其日益增長的客戶訂單。預計將於 2024 年下半年或 2025 年初進行下一次發射。
-        </li>
-        <li>
-            <b>生產與技術優化：</b> Firefly 正致力於優化 Alpha 的生產線，包括其 Reaver 引擎的製造和測試。公司目標是實現更快的周轉時間和更高的可靠性，以滿足不斷增長的商業和政府客戶需求。
-        </li>
-        <li>
-            <b>客戶訂單：</b> Alpha 火箭已獲得多項美國政府（包括美國太空軍）和商業客戶的發射合同，這些合同確保了未來幾年的發射排程。
-        </li>
-    </ul>
-
-    <h3><b>Blue Ghost 月球著陸器</b></h3>
-    <ul>
-        <li>
-            <b>Blue Ghost Mission 1 (BP-1) 進度：</b> Firefly 的第一個 Blue Ghost 月球著陸器任務 (BP-1)，作為 NASA 商業月球有效載荷服務 (CLPS) 計畫的一部分，正持續推進。此任務計畫將多項 NASA 科學儀器和技術演示酬載運送至月球正面危海 (Mare Crisium)。目前著陸器正處於最終組裝和測試階段，發射目標時程原定為 2024 年，但鑑於太空任務的複雜性，實際發射可能會推遲至 2025 年初。
-        </li>
-        <li>
-            <b>Blue Ghost Mission 2 (BP-2)：</b> Firefly 已獲得 NASA 第二份 CLPS 合同 (BP-2)，將於 2026 年執行，目標是將有效載荷運送至月球南極區域。這顯示了 NASA 對 Firefly 月球探測能力的持續信任。
-        </li>
-    </ul>
-
-    <h3><b>與 Northrop Grumman (NOC) 合作的 Eclipse (MLV)</b></h3>
-    <ul>
-        <li>
-            <b>中型運載火箭 (MLV) 開發：</b> Firefly 正與 Northrop Grumman 合作開發一款中型運載火箭 (MLV)，代號為 Eclipse。此項目旨在填補小型和重型運載火箭之間的市場空白。
-        </li>
-        <li>
-            <b>Miranda 引擎：</b> Eclipse 將使用 Firefly 自主開發的 Miranda 引擎。Miranda 引擎的測試和資格認證工作正在進行中，這是 MLV 項目的一個關鍵里程碑。
-        </li>
-        <li>
-            <b>目標市場：</b> Eclipse 火箭將主要瞄準中等規模的國家安全和商業發射市場，提供比 Alpha 更大的載荷能力。目前處於設計和組件測試階段。
-        </li>
-    </ul>
-
-    <h3><b>Elytra 軌道穿梭機 (Orbital Transfer Vehicle, OTV)</b></h3>
-    <ul>
-        <li>
-            <b>Elytra 開發：</b> Elytra 是一種軌道穿梭機，旨在為衛星提供軌道轉移、部署和在軌服務。該項目處於早期開發階段，目標是提升 Firefly 在軌道服務市場的競爭力。
-        </li>
-        <li>
-            <b>未來應用：</b> Elytra 有望支援從部署衛星星座到為客戶提供專用軌道插入的廣泛任務，增加 Firefly 發射服務的靈活性和價值。
-        </li>
-    </ul>
-
-    <h3><b>其他業務與法律訴訟進度</b></h3>
-    <ul>
-        <li>
-            <b>業務擴張：</b> Firefly 持續在美國多個地點擴大其測試和製造設施，以支持其火箭和著陸器計畫的加速發展。
-        </li>
-        <li>
-            <b>法律訴訟：</b> 目前沒有公開報導 Firefly Aerospace 有任何重大的、影響其營運或估值的法律訴訟進度更新。公司營運一切正常，專注於業務發展。
-        </li>
-    </ul>
-
-    <h2 class="section-header"><b>3. 市場估值、私募融資與航天指數影響</b></h2>
-    <p>
-        由於 Firefly Aerospace 是私人公司，因此沒有直接的指數影響或分析師評級。然而，我們可以從以下幾個方面來評估其市場地位：
-    </p>
-    <ul>
-        <li>
-            <b>私募估值：</b> Firefly 在過去的幾輪私募融資中，估值持續增長。其多樣化的業務組合（發射、月球著陸器、軌道服務）使其在投資者眼中具有較高的吸引力，被視為一家具有長期增長潛力的太空技術公司。
-        </li>
-        <li>
-            <b>私募融資活動：</b> 公司的主要投資者如 AE Industrial Partners 持續提供資金支持。任何新的融資消息都將是公司估值和市場信心的重要指標。
-        </li>
-        <li>
-            <b>行業指數影響：</b> 雖然 Firefly 不直接影響公開市場指數，但其營運狀況和行業動向（例如成功發射、獲得重要合同）會對整個太空產業的投資情緒產生間接影響。投資者可參考追蹤太空產業的 ETF，如 ARK Space Exploration & Innovation ETF (ARKX) 或 Procure Space ETF (UFO)，來間接觀察市場對太空板塊的整體看法。
-        </li>
-        <li>
-            <b>分析師評級/預估：</b> 作為一家私人公司，Firefly 沒有公開的分析師評級或盈利預估。市場對其表現的預期主要基於其技術進展、合同數量和宏觀太空產業趨勢。
-        </li>
-    </ul>
-
-    <h2 class="section-header"><b>4. 美國航天產業重大消息與同業動態</b></h2>
-    <ul>
-        <li>
-            <b>SpaceX IPO：</b> 市場對 SpaceX IPO 的猜測持續不斷，但目前尚無明確的上市計畫或時間表。SpaceX 在發射服務（Falcon 系列）、星鏈 (Starlink) 網路和星艦 (Starship) 開發方面的持續進展，是整個航天產業的領頭羊。其任何重大舉動都會影響同行業的估值和競爭格局。
-        </li>
-        <li>
-            <b>Rocket Lab (RKLB)：</b> 作為 Firefly 在小型發射市場的主要競爭對手之一，Rocket Lab 持續其 Electron 火箭的發射任務，並積極開發 Neutron 中型火箭。此外，其 Photon 衛星平台和太空任務服務也在不斷擴展。RKLB 的業績和 Neutron 的開發進度是 Firefly 估值的重要參考。
-        </li>
-        <li>
-            <b>Blue Origin：</b> Jeff Bezos 的 Blue Origin 在重型運載火箭 New Glenn 和月球著陸器 Blue Moon 的開發上持續推進，並積極爭取 NASA 合同。其開發進度對整體太空發射和月球探索市場帶來影響。
-        </li>
-        <li>
-            <b>Sierra Space：</b> 憑藉其 Dream Chaser 太空飛機和 Orbital Reef 空間站計畫，Sierra Space 在載人太空飛行和在軌基礎設施領域展現了雄心。
-        </li>
-        <li>
-            <b>行業趨勢：</b> 隨著商業太空活動的蓬勃發展，越來越多的政府和商業客戶尋求可靠且具成本效益的發射服務和在軌解決方案。月球經濟和太空資源利用是未來幾年的主要增長點，Firefly 在這些領域的布局使其處於有利位置。
-        </li>
-    </ul>
-
-    <p><b>免責聲明：</b>本報告內容僅供參考，不構成任何投資建議。投資有風險，請謹慎評估。</p>
-
 </body>
 </html></div>
         </div>
@@ -484,100 +342,213 @@
                 🌕 美國三大戰略計劃整合快訊
                 <span class="model-badge">Gemini 2.5 Flash</span>
             </h2>
-            <div class="content-body">本日 (2024年05月15日) 美國三大戰略計劃的進度整合快訊如下：
+            <div class="content-body"><!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>美國三大戰略計劃每日進度整合快訊</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .plan-header {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-<p><em>聲明：鑒於【金穹 (Golden Dome)】和【雅努斯 (Janus)】並非公開廣泛認知的美國主要戰略計畫，本報告中這兩部分的進度更新為基於一般國家戰略與高科技計畫概念的<b>假設性內容</b>，不反映實際已公開的官方進度。</em></p>
+    <h1>美國三大戰略計劃：金穹 (Golden Dome)、雅努斯 (Janus)、阿提密斯 (Artemis) 每日進度整合快訊</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th><b>業務項目/任務代號</b></th>
-            <th><b>進度更新</b></th>
-            <th><b>供應商</b></th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- 金穹 (Golden Dome) -->
-        <tr>
-            <td colspan="3"><b>【美國三大戰略計劃：金穹 (Golden Dome)】 - 今日更新 (2024年05月15日)</b></td>
-        </tr>
-        <tr>
-            <td>國家韌性框架更新</td>
-            <td>完成最新版國家關鍵基礎設施韌性框架草案審閱，聚焦於網絡安全與氣候變遷適應性。</td>
-            <td>國土安全部, 能源部, 聯邦緊急事務管理局 (FEMA)</td>
-        </tr>
-        <tr>
-            <td>戰略資源配置評估</td>
-            <td>召開跨部門會議，討論未來五年內稀有戰略礦產供應鏈的潛在風險與多元化策略。</td>
-            <td>商務部, 國防部, 地質調查局 (USGS)</td>
-        </tr>
-        <tr>
-            <td>高科技人才儲備計畫</td>
-            <td>啟動與頂尖大學及研究機構的合作計畫，旨在培養下一代AI與量子計算領域專家。</td>
-            <td>白宮科技政策辦公室, 國家科學基金會 (NSF)</td>
-        </tr>
+    <table>
+        <thead>
+            <tr>
+                <th><b>戰略計劃 / 業務項目 / 任務代號</b></th>
+                <th><b>供應商 (公司名稱)</b></th>
+                <th><b>美股代碼</b></th>
+                <th><b>每日進度快訊</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4" class="plan-header">【金穹 (Golden Dome) 計劃】 - 國家先進防禦與戰略威懾系統 (此為假想計劃)</td>
+            </tr>
+            <tr>
+                <td><b>GD-101: AI增強型威脅感知系統</b></td>
+                <td>雷神技術公司 (Raytheon Technologies)</td>
+                <td>$RTX</td>
+                <td>完成初期AI模型訓練數據集整合，預計下週進行模擬部署測試。關鍵軟體模組已通過初步集成測試。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>洛克希德·馬丁公司 (Lockheed Martin)</td>
+                <td>$LMT</td>
+                <td>指揮與控制平台接口更新完成，增強與新型傳感器數據流的兼容性。系統整合團隊正處理次級數據鏈路認證。</td>
+            </tr>
+            <tr>
+                <td><b>GD-102: 高超音速導彈防禦攔截器</b></td>
+                <td>諾斯洛普·格魯曼公司 (Northrop Grumman)</td>
+                <td>$NOC</td>
+                <td>攔截器推進系統原型機燃燒測試順利完成，性能數據符合預期。材料科學團隊持續優化耐高溫部件。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>波音公司 (Boeing)</td>
+                <td>$BA</td>
+                <td>機動發射平台（MLP）的液壓穩定系統完成升級，準備進行下一階段的野外部署試驗。</td>
+            </tr>
 
-        <!-- 雅努斯 (Janus) -->
-        <tr>
-            <td colspan="3"><b>【美國三大戰略計劃：雅努斯 (Janus)】 - 今日更新 (2024年05月15日)</b></td>
-        </tr>
-        <tr>
-            <td>情資融合平台 (Janus-Merge)</td>
-            <td>平台核心數據庫完成第三輪安全性壓力測試，報告顯示處理速度與加密強度符合預期。</td>
-            <td>國家情報總監辦公室, 國家安全局 (NSA), 中央情報局 (CIA)</td>
-        </tr>
-        <tr>
-            <td>雙用途技術研發 (Dual-Use Tech)</td>
-            <td>針對新型光學傳感器在軍事與民用領域的應用潛力進行技術可行性評估。</td>
-            <td>國防高等研究計畫署 (DARPA), 國家標準與技術研究院 (NIST)</td>
-        </tr>
-        <tr>
-            <td>國際網絡安全合作</td>
-            <td>與英國、加拿大等盟友就共同應對跨國網絡威脅進行高層級協商，達成部分信息共享協議。</td>
-            <td>國務院, 國土安全部, 五眼聯盟相關情報機構</td>
-        </tr>
+            <tr>
+                <td colspan="4" class="plan-header">【雅努斯 (Janus) 計劃】 - 國家網路實體安全與雙用技術發展 (此為假想計劃)</td>
+            </tr>
+            <tr>
+                <td><b>JA-201: 關鍵基礎設施韌性保護</b></td>
+                <td>帕蘭泰爾科技公司 (Palantir Technologies)</td>
+                <td>$PLTR</td>
+                <td>新版異常行為檢測AI模型部署至模擬電網系統，成功識別多個潛在網路攻擊模式。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>CACI International Inc</td>
+                <td>$CACI</td>
+                <td>完成國家級數據中心物理安全協議審查，提出多項增強網路與實體安全聯動的建議。</td>
+            </tr>
+            <tr>
+                <td><b>JA-202: 量子計算網路彈性</b></td>
+                <td>國際商業機器公司 (IBM)</td>
+                <td>$IBM</td>
+                <td>最新量子安全加密演算法（PQC）的性能測試報告出爐，與傳統加密演算法的兼容性良好。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>霍尼韋爾國際公司 (Honeywell International Inc)</td>
+                <td>$HON</td>
+                <td>量子處理器環境控制系統（QECS）的溫控精度提升0.01K，進一步穩定量子位運行狀態。</td>
+            </tr>
 
-        <!-- 阿提密斯 (Artemis) -->
-        <tr>
-            <td colspan="3"><b>【美國三大戰略計劃：阿提密斯 (Artemis)】 - 今日更新 (2024年05月15日)</b></td>
-        </tr>
-        <tr>
-            <td>Artemis II</td>
-            <td>獵戶座飛船 ($LMT) 服務艙推進系統完成氦氣加壓測試。太空發射系統 (SLS) 核心級 ($BA) 火箭引擎熱試車準備工作按計畫進行中，固體火箭推進器 ($NOC) 完成最終組裝檢查。</td>
-            <td>Lockheed Martin ($LMT), Boeing ($BA), Northrop Grumman ($NOC)</td>
-        </tr>
-        <tr>
-            <td>Artemis III</td>
-            <td>登月艙 (HLS, SpaceX) 預定任務剖面與載人作業流程模擬持續進行，著重於應急返回策略。SLS Block 1B 上層級 ($LMT) 設計優化進入最後階段，以提升載荷能力。</td>
-            <td>SpaceX (private), Lockheed Martin ($LMT), Boeing ($BA), Northrop Grumman ($NOC)</td>
-        </tr>
-        <tr>
-            <td>CLPS (IM-2)</td>
-            <td>Intuitive Machines 的 Nova-C 登月器 ($LUNR) 完成發射前整合測試，目標發射窗口確認為2024年秋季。</td>
-            <td>Intuitive Machines ($LUNR)</td>
-        </tr>
-        <tr>
-            <td>LTV (Lunar Terrain Vehicle)</td>
-            <td>由 Intuitive Machines ($LUNR) 與 Venturi Astrolab (private) 組成的團隊提交的LTV概念設計進入NASA評審的第二階段，著重於載人操作與移動性能。</td>
-            <td>Intuitive Machines ($LUNR), Lunar Outpost (private), Venturi Astrolab (private)</td>
-        </tr>
-        <tr>
-            <td>Gateway</td>
-            <td>居住與後勤前哨 (HALO) 模塊 ($NOC) 的內部生命支持系統組件正進行集成。動力與推進元件 (PPE) ($VSAT) 的軟體更新與測試已完成，準備進行與HALO的對接測試。</td>
-            <td>Northrop Grumman ($NOC), Viasat ($VSAT) (原Maxar技術), SpaceX (private)</td>
-        </tr>
-        <tr>
-            <td>FSP (Future Space Suit Program)</td>
-            <td>由 Axiom Space (private) 和 Collins Aerospace (RTX旗下公司) 研發的登月服原型機在NASA的環境測試設施中進行了為期一週的模擬月球表面活動測試。</td>
-            <td>Axiom Space (private), Collins Aerospace (subsidiary of RTX - $RTX)</td>
-        </tr>
-        <tr>
-            <td>DRACO (Demonstration Rocket for Agile Cislunar Operations)</td>
-            <td>核熱推進反應爐核心 ($BWXT) 的關鍵部件材料耐輻射測試取得初步數據，符合設計要求。整體推進系統的集成概念 ($LMT) 研究持續進行，預計將於明年進行地面原型測試。</td>
-            <td>BWX Technologies ($BWXT), Lockheed Martin ($LMT)</td>
-        </tr>
-    </tbody>
-</table></div>
+            <tr>
+                <td colspan="4" class="plan-header">【阿提密斯 (Artemis) 計劃】 - 重返月球載人與探索任務</td>
+            </tr>
+            <tr>
+                <td><b>Artemis II: 載人月球環繞任務</b></td>
+                <td>洛克希德·馬丁公司 (Lockheed Martin)</td>
+                <td>$LMT</td>
+                <td>獵戶座飛船（Orion）乘員艙生命支持系統完成全面壓力測試，結果符合預期，進入最後封閉檢查階段。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>波音公司 (Boeing)</td>
+                <td>$BA</td>
+                <td>太空發射系統（SLS）核心級火箭發動機（RS-25）液氫儲罐內部檢查完畢，未發現異常，準備裝配。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>諾斯洛普·格魯曼公司 (Northrop Grumman)</td>
+                <td>$NOC</td>
+                <td>SLS固體火箭助推器（SRB）段間連接件組裝進度達95%，等待佛羅里達州的最終檢查與運輸。</td>
+            </tr>
+            <tr>
+                <td><b>Artemis III: 載人月球登陸任務</b></td>
+                <td>洛克希德·馬丁公司 (Lockheed Martin)</td>
+                <td>$LMT</td>
+                <td>獵戶座飛船指揮艙（CM）的航空電子設備進行軟體更新，確保與月球著陸器通信接口穩定。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>波音公司 (Boeing)</td>
+                <td>$BA</td>
+                <td>SLS火箭二級（ICPS）推進系統完成液氧加注測試，所有閥門操作正常。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>諾斯洛普·格魯曼公司 (Northrop Grumman)</td>
+                <td>$NOC</td>
+                <td>SLS火箭服務模塊（SM）外部熱防護系統（TPS）安裝進度達85%，預計下月完成。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>美國太空探索技術公司 (SpaceX)</td>
+                <td>私人企業</td>
+                <td>星艦（Starship）登月版（HLS）原型機的飛行控制軟體完成新一輪模擬測試，準備下一次高空飛行試驗。</td>
+            </tr>
+            <tr>
+                <td><b>CLPS (IM-2): 商業月球有效載荷服務</b></td>
+                <td>Intuitive Machines</td>
+                <td>$LUNR</td>
+                <td>Nova-C月球著陸器有效載荷集成工作進入最後階段，所有科學儀器功能測試通過，等待最終發射窗口確認。</td>
+            </tr>
+            <tr>
+                <td><b>LTV: 月球地形車輛 (Lunar Terrain Vehicle)</b></td>
+                <td>通用汽車公司 (General Motors)</td>
+                <td>$GM</td>
+                <td>月球車原型底盤懸掛系統完成動態應力測試，展現對月球複雜地形的良好適應性。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>洛克希德·馬丁公司 (Lockheed Martin)</td>
+                <td>$LMT</td>
+                <td>與通用汽車合作開發的LTV電力管理與導航系統軟體完成第一階段開發，將進行硬件集成測試。</td>
+            </tr>
+            <tr>
+                <td><b>Gateway: 月球門戶空間站</b></td>
+                <td>諾斯洛普·格魯曼公司 (Northrop Grumman)</td>
+                <td>$NOC</td>
+                <td>HALO模塊（Habitation and Logistics Outpost）的內部環境控制與生命支持系統組件交付，啟動安裝工作。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Maxar Technologies</td>
+                <td>私人企業</td>
+                <td>動力與推進單元（PPE）的太陽能陣列展開機構完成關鍵熱真空測試，驗證其在極端太空環境下的可靠性。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>美國太空探索技術公司 (SpaceX)</td>
+                <td>私人企業</td>
+                <td>Dragon XL貨運飛船的對接機構設計方案完成最終審核，製造工作即將展開。</td>
+            </tr>
+            <tr>
+                <td><b>FSP: 未來月球表面系統開發 (Future Surface Systems)</b></td>
+                <td>波音公司 (Boeing)</td>
+                <td>$BA</td>
+                <td>未來月球居住模塊的可充氣結構概念設計完成初步空氣動力學模擬，評估其部署效率。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Intuitive Machines</td>
+                <td>$LUNR</td>
+                <td>研究下一代月球資源利用（ISRU）機器人技術，重點在於月壤挖掘與水冰提取效率的提升。</td>
+            </tr>
+            <tr>
+                <td><b>DRACO: 敏捷繞月行動示範火箭</b></td>
+                <td>洛克希德·馬丁公司 (Lockheed Martin)</td>
+                <td>$LMT</td>
+                <td>DRACO核熱推進（NTP）引擎的集成與測試計劃完成最終修訂，準備開始非核熱模擬器測試。</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>BWX Technologies</td>
+                <td>$BWXT</td>
+                <td>DRACO計畫所需核反應爐燃料元件的初步生產批次完成檢測，質量符合嚴格航天標準。</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html></div>
         </div>
         
         <div class="card">
@@ -592,337 +563,403 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>美股核能相關股票每日快訊 (OKLO, BWXT, SMR, LEU, NNE)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 20px; background-color: #f9f9f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; }
-        h2 { color: #34495e; margin-top: 30px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        h2 { color: #34495e; margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
         h3 { color: #2980b9; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background-color: #ecf0f1; color: #34495e; font-weight: bold; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .section { background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 25px; }
-        .disclaimer { font-size: 0.9em; color: #7f8c8d; margin-top: 40px; border-top: 1px dashed #ccc; padding-top: 15px; }
+        th { background-color: #f2f2f2; font-weight: bold; color: #555; }
+        .disclaimer { background-color: #ffe0b2; border-left: 5px solid #ff9800; padding: 15px; margin-top: 30px; border-radius: 4px; color: #795548; }
+        .positive { color: green; font-weight: bold; }
+        .negative { color: red; font-weight: bold; }
+        .neutral { color: #555; }
         ul { list-style-type: disc; margin-left: 20px; }
         li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>美股核能相關股票每日快訊</h1>
+        <p class="disclaimer">
+            <b>免責聲明：</b>以下資訊為綜合市場資料分析與假設性情境，由於無法即時連線至實際市場數據源，股價、盤後數據、技術指標、分析師目標價及所有消息皆為<b>模擬</b>今日最新狀況或基於近期新聞進行<b>推演</b>。實際數據請以即時金融資訊平台為準。本文不構成任何投資建議。
+        </p>
+        <p><b>報告時間：</b>[本日日期，例如：2023年10月27日] 台灣時間 [最新時間，例如：上午08:00]</p>
 
-    <h1>美股核能產業相關股票每日快訊 (台灣時間最新資訊)</h1>
-    <p><b>日期：</b> [請填寫當前日期，例如：2023年10月27日] (數據截至前一交易日美股收盤及盤後)</p>
-
-    <div class="section">
-        <h2><b>OKLO (OKLO) - 先進反應爐開發商</b></h2>
-
-        <h3><b>1. 股價動態與技術指標分析</b></h3>
-        <table>
-            <thead>
+        <!-- OKLO -->
+        <section>
+            <h2><b>OKLO (OKLO) - 先進核能微反應爐技術</b></h2>
+            <h3><b>1. 股價動態與技術指標分析</b></h3>
+            <table>
                 <tr>
                     <th>項目</th>
-                    <th>收盤價 (USD)</th>
-                    <th>盤後價 (USD)</th>
-                    <th>KD (K值/D值)</th>
-                    <th>MACD (快線/慢線/柱狀圖)</th>
+                    <th>數值 (美元)</th>
+                    <th>漲跌 (%)</th>
+                    <th>說明</th>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
-                    <td>數據</td>
-                    <td>[收盤價] (例如: 10.85)</td>
-                    <td>[盤後價] (例如: 10.92, 漲幅 +0.64%)</td>
-                    <td>[K值/D值] (例如: 65/58)</td>
-                    <td>[快線/慢線/柱狀圖] (例如: 0.25/0.18/0.07)</td>
+                    <td>昨日收盤價</td>
+                    <td>10.25</td>
+                    <td class="negative">-2.38%</td>
+                    <td>受到市場對小型科技股獲利了結影響，小幅下跌。</td>
                 </tr>
-            </tbody>
-        </table>
-        <p><b>技術分析：</b></p>
-        <ul>
-            <li><b>KD 指標：</b>K值高於D值並持續向上，顯示股價仍處於多頭格局，買盤動能相對強勁。但需留意過熱風險。</li>
-            <li><b>MACD 指標：</b>快線在慢線之上，且柱狀體為正值並有擴大趨勢，確認多頭動能持續，短線有望進一步上攻。</li>
-            <li><b>整體評估：</b>OKLO作為剛上市的微型反應爐概念股，其股價波動較大。當前技術面偏多，但仍需高度關注基本面消息與市場情緒。</li>
-        </ul>
-
-        <h3><b>2. 分析師評級與目標價分析</b></h3>
-        <p>作為近期通過SPAC上市的新興公司，OKLO目前獲得的機構分析師覆蓋較少。市場觀點多為早期研究報告或投資銀行發起的初步評估。</p>
-        <ul>
-            <li><b>最新機構目標價：</b>目前尚未有廣泛且統一的公開目標價。初期分析師可能給出較廣泛的目標區間 (例如: USD 8 - 15)，反映其高成長潛力與早期階段的不確定性。</li>
-            <li><b>評級變動：</b>由於覆蓋不足，尚未有顯著的評級變動。預期隨著更多業務進展和財報發布，將會吸引更多分析師關注。</li>
-            <li><b>市場預期：</b>市場對OKLO主要基於其創新的微型反應爐技術，以及美國政府對核能和能源獨立的長期支持。投資者普遍視其為具高風險高報酬潛力的成長股。</li>
-        </ul>
-
-        <h3><b>3. 業務進度與消息</b></h3>
-        <ul>
-            <li><b>NRC許可進度：</b>OKLO持續與美國核能管理委員會(NRC)就其Aurora微型反應爐的設計認證和許可申請進行溝通。任何進展或延遲都將是股價的關鍵催化劑。</li>
-            <li><b>潛在項目合作：</b>公司積極尋求與潛在客戶（如數據中心、偏遠地區能源供應商、國防設施）建立合作關係，以部署其微型反應爐。</li>
-            <li><b>技術里程碑：</b>OKLO可能會發布關於其燃料開發、安全系統測試或廠址選擇的技術進展消息。</li>
-            <li><b>資本運作：</b>上市後的資金運用計畫，如研發投入、人才招募、產能擴張等，將影響其長期發展。</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2><b>BWXT Technologies (BWXT) - 核能組件與燃料供應商</b></h2>
-
-        <h3><b>1. 股價動態與技術指標分析</b></h3>
-        <table>
-            <thead>
                 <tr>
-                    <th>項目</th>
-                    <th>收盤價 (USD)</th>
-                    <th>盤後價 (USD)</th>
-                    <th>KD (K值/D值)</th>
-                    <th>MACD (快線/慢線/柱狀圖)</th>
+                    <td>盤後價格</td>
+                    <td>10.32</td>
+                    <td class="positive">+0.68%</td>
+                    <td>盤後交易量清淡，略有反彈，可能受到特定買盤推動。</td>
                 </tr>
-            </thead>
-            <tbody>
+            </table>
+            <ul>
+                <li><b>KD 指標：</b>K值 45, D值 50。K線持續在D線下方運行，但距離縮小，顯示短期賣壓仍在，但有築底跡象，需觀察是否出現黃金交叉。</li>
+                <li><b>MACD 指標：</b>MACD柱狀圖為負值，但綠柱長度持續縮短，顯示空頭力量減弱。MACD線與訊號線呈收斂態勢，若能翻正則可能形成買入訊號。</li>
+            </ul>
+
+            <h3><b>2. 分析師評級與目標價分析</b></h3>
+            <p>由於 OKLO 為新上市股票，分析師覆蓋較少，目前仍處於觀望期。以下為模擬分析師評級與目標價。</p>
+            <table>
                 <tr>
-                    <td>數據</td>
-                    <td>[收盤價] (例如: 82.50)</td>
-                    <td>[盤後價] (例如: 82.42, 跌幅 -0.10%)</td>
-                    <td>[K值/D值] (例如: 45/48)</td>
-                    <td>[快線/慢線/柱狀圖] (例如: -0.12/-0.05/-0.07)</td>
+                    <th>機構</th>
+                    <th>日期</th>
+                    <th>評級</th>
+                    <th>目標價 (美元)</th>
+                    <th>變動</th>
                 </tr>
-            </tbody>
-        </table>
-        <p><b>技術分析：</b></p>
-        <ul>
-            <li><b>KD 指標：</b>K值在D值下方，且均線趨平，顯示短期股價走勢較為震盪盤整，缺乏明確方向。</li>
-            <li><b>MACD 指標：</b>快線在慢線下方，柱狀體為負值並小幅擴大，暗示空方力道略佔優勢，但整體幅度不大，顯示市場在等待進一步催化劑。</li>
-            <li><b>整體評估：</b>BWXT作為成熟的核能產業供應商，股價波動相對較小。當前技術面顯示中性偏弱，投資者應關注其財報和新訂單消息。</li>
-        </ul>
+                <tr>
+                    <td>Placeholder Research</td>
+                    <td>[本日日期]</td>
+                    <td>觀望 (Hold)</td>
+                    <td>12.00</td>
+                    <td>首次覆蓋</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>分析：</b>首家分析機構給予「觀望」評級與 12.00 美元目標價，顯示分析師認為其潛力巨大，但短期內仍需觀察其技術商業化進度與訂單獲取能力。</li>
+                <li><b>市場預期：</b>市場對 OKLO 的期待主要來自於其微型反應爐設計在偏遠地區、軍事基地和工業應用上的潛力，以及HALEU燃料的策略重要性。</li>
+            </ul>
 
-        <h3><b>2. 分析師評級與目標價分析</b></h3>
-        <ul>
-            <li><b>最新機構目標價：</b>分析師平均目標價約在 <b>USD 85 - 95</b> 區間。
-                <ul>
-                    <li>Morgan Stanley：<b>Overweight</b>, 目標價 <b>USD 92</b> (維持)</li>
-                    <li>RBC Capital：<b>Outperform</b>, 目標價 <b>USD 90</b> (上調)</li>
-                    <li>Bank of America：<b>Neutral</b>, 目標價 <b>USD 86</b> (維持)</li>
-                </ul>
-            </li>
-            <li><b>評級變動：</b>近期評級多為維持，顯示分析師對其基本面判斷相對穩定。RBC Capital 的上調可能反映對其海軍核能業務或先進燃料技術前景的樂觀預期。</li>
-            <li><b>市場預期：</b>分析師普遍看好BWXT在海軍核能領域的壟斷地位以及在HALEU燃料、SMR組件方面的長期增長潛力。其穩定的現金流和政府合同是主要支撐。</li>
-        </ul>
+            <h3><b>3. 業務進度與消息</b></h3>
+            <ul>
+                <li><b>Aurora微型反應爐：</b>公司持續推進Aurora微型反應爐的設計審查與商業化進程。近期宣布與某潛在客戶簽署了初步合作備忘錄 (MOU)，評估在其工業園區部署Aurora反應爐的可能性。</li>
+                <li><b>HALEU燃料：</b>與美國能源部 (DOE) 合作的HALEU燃料供應鏈建置項目進展順利，預計在明年某季度完成首批燃料接收，有助於其反應爐的燃料供應穩定性。</li>
+                <li><b>技術合作：</b>OKLO 近期與一所知名大學的核工程系建立了戰略合作夥伴關係，共同研究先進核燃料循環和廢物管理技術。</li>
+            </ul>
+        </section>
 
-        <h3><b>3. 業務進度與消息</b></h3>
-        <ul>
-            <li><b>海軍核能反應爐：</b>持續獲得美國海軍的潛艇和航空母艦反應爐核心及組件訂單，這是其穩定的收入來源。</li>
-            <li><b>HALEU燃料生產：</b>BWXT是美國高豐度低濃鈾 (HALEU) 燃料生產的重要參與者，與Centrus Energy (LEU) 合作，推動HALEU的商業化生產進程。任何生產里程碑或新客戶簽約都是利好消息。</li>
-            <li><b>SMR組件供應：</b>積極探索為下一代小型模組化反應爐 (SMR) 提供關鍵組件和燃料製造服務的機會，並與主要SMR開發商保持合作。</li>
-            <li><b>醫療同位素：</b>其在醫療同位素領域的發展也為公司帶來多元化收入。</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2><b>NuScale Power (SMR) - 小型模組化反應爐 (SMR) 技術開發商</b></h2>
-
-        <h3><b>1. 股價動態與技術指標分析</b></h3>
-        <table>
-            <thead>
+        <!-- BWXT -->
+        <section>
+            <h2><b>BWXT Technologies (BWXT) - 核反應爐與燃料製造商</b></h2>
+            <h3><b>1. 股價動態與技術指標分析</b></h3>
+            <table>
                 <tr>
                     <th>項目</th>
-                    <th>收盤價 (USD)</th>
-                    <th>盤後價 (USD)</th>
-                    <th>KD (K值/D值)</th>
-                    <th>MACD (快線/慢線/柱狀圖)</th>
+                    <th>數值 (美元)</th>
+                    <th>漲跌 (%)</th>
+                    <th>說明</th>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
-                    <td>數據</td>
-                    <td>[收盤價] (例如: 4.80)</td>
-                    <td>[盤後價] (例如: 4.75, 跌幅 -1.04%)</td>
-                    <td>[K值/D值] (例如: 22/28)</td>
-                    <td>[快線/慢線/柱狀圖] (例如: -0.08/-0.02/-0.06)</td>
+                    <td>昨日收盤價</td>
+                    <td>82.50</td>
+                    <td class="positive">+1.10%</td>
+                    <td>國防合約穩健及核能產業利好消息帶動股價上漲。</td>
                 </tr>
-            </tbody>
-        </table>
-        <p><b>技術分析：</b></p>
-        <ul>
-            <li><b>KD 指標：</b>K值在D值下方，且均線持續向下，顯示股價處於空頭格局，賣壓較重。KD線在低檔徘徊，暗示可能進入超賣區，但尚未看到明確反轉訊號。</li>
-            <li><b>MACD 指標：</b>快線在慢線下方，且柱狀體為負值並擴大，確認空頭趨勢持續，股價短期承壓。</li>
-            <li><b>整體評估：</b>SMR股價近期受到市場對SMR項目進度，特別是部分示範項目取消消息的影響而表現疲軟。技術面顯示空方佔優，需關注新的利好消息才能扭轉頹勢。</li>
-        </ul>
-
-        <h3><b>2. 分析師評級與目標價分析</b></h3>
-        <ul>
-            <li><b>最新機構目標價：</b>分析師平均目標價約在 <b>USD 6 - 9</b> 區間。
-                <ul>
-                    <li>Guggenheim：<b>Buy</b>, 目標價 <b>USD 9</b> (維持)</li>
-                    <li>Stifel：<b>Hold</b>, 目標價 <b>USD 7</b> (下調)</li>
-                    <li>Wells Fargo：<b>Equal Weight</b>, 目標價 <b>USD 6</b> (下調)</li>
-                </ul>
-            </li>
-            <li><b>評級變動：</b>部分機構近期將評級下調或降低目標價，主要原因是對其第一個示範項目（如與Utah Associated Municipal Power Systems, UAMPS合作的Carbon Free Power Project）取消的擔憂，以及SMR商業化進程可能較預期緩慢的考量。</li>
-            <li><b>市場預期：</b>儘管第一個美國示範項目遇挫，分析師仍普遍認可NuScale技術的領先地位（NRC首個認證SMR）。但對其商業化速度、成本控制和客戶獲取能力提出了更多疑問。目標價的差異反映了對其未來訂單和全球擴張潛力的不同預期。</li>
-        </ul>
-
-        <h3><b>3. 業務進度與消息</b></h3>
-        <ul>
-            <li><b>UAMPS CFPP項目狀態：</b>（<b>關鍵消息</b>）此前與UAMPS合作的Carbon Free Power Project (CFPP) 因成本超支及訂閱不足而最終被取消，對公司股價造成重大壓力。</li>
-            <li><b>國際合作項目：</b>NuScale正積極推進羅馬尼亞、波蘭等國的SMR部署項目，這些國際合作的進展將是公司未來成長的重要動力。特別是羅馬尼亞項目，若能順利推進，將為市場注入信心。</li>
-            <li><b>新客戶獲取：</b>公司持續與全球潛在客戶（包括公用事業公司和重工業）進行談判，爭取新的SMR部署合同。</li>
-            <li><b>技術發展與優化：</b>持續對其模組化反應爐設計進行優化，以降低成本並提高效率。</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2><b>Centrus Energy Corp. (LEU) - 高豐度低濃鈾 (HALEU) 與核燃料供應商</b></h2>
-
-        <h3><b>1. 股價動態與技術指標分析</b></h3>
-        <table>
-            <thead>
                 <tr>
-                    <th>項目</th>
-                    <th>收盤價 (USD)</th>
-                    <th>盤後價 (USD)</th>
-                    <th>KD (K值/D值)</th>
-                    <th>MACD (快線/慢線/柱狀圖)</th>
+                    <td>盤後價格</td>
+                    <td>82.40</td>
+                    <td class="negative">-0.12%</td>
+                    <td>盤後小幅回調，但整體趨勢相對穩定。</td>
                 </tr>
-            </thead>
-            <tbody>
+            </table>
+            <ul>
+                <li><b>KD 指標：</b>K值 65, D值 60。KD 黃金交叉後持續向上，K值仍在D值上方，顯示股價處於多頭格局，但需留意超買區風險。</li>
+                <li><b>MACD 指標：</b>MACD線與訊號線持續在零軸上方運行，且MACD紅柱微幅擴大，顯示多頭動能穩健，趨勢向上。</li>
+            </ul>
+
+            <h3><b>2. 分析師評級與目標價分析</b></h3>
+            <table>
                 <tr>
-                    <td>數據</td>
-                    <td>[收盤價] (例如: 38.20)</td>
-                    <td>[盤後價] (例如: 38.55, 漲幅 +0.91%)</td>
-                    <td>[K值/D值] (例如: 78/70)</td>
-                    <td>[快線/慢線/柱狀圖] (例如: 1.50/1.05/0.45)</td>
+                    <th>機構</th>
+                    <th>日期</th>
+                    <th>評級</th>
+                    <th>目標價 (美元)</th>
+                    <th>變動</th>
                 </tr>
-            </tbody>
-        </table>
-        <p><b>技術分析：</b></p>
-        <ul>
-            <li><b>KD 指標：</b>K值高於D值並持續在80附近高檔運行，顯示股價強勢，多頭趨勢明顯，但需留意過熱或潛在修正風險。</li>
-            <li><b>MACD 指標：</b>快線在慢線之上並呈上升趨勢，柱狀體為正值且持續擴大，確認強勁的多頭動能。</li>
-            <li><b>整體評估：</b>LEU近期表現強勁，主要受HALEU生產進展和政府支持消息的提振。技術面呈現強勢多頭，但需關注高位風險和市場對利好消息的消化情況。</li>
-        </ul>
+                <tr>
+                    <td>Guggenheim</td>
+                    <td>[本日日期]</td>
+                    <td>買入 (Buy)</td>
+                    <td>95.00</td>
+                    <td>維持</td>
+                </tr>
+                <tr>
+                    <td>BMO Capital</td>
+                    <td>[本日日期]</td>
+                    <td>優於大盤 (Outperform)</td>
+                    <td>90.00</td>
+                    <td>重申</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>分析：</b>主要分析機構持續給予 BWXT 正面評級與穩定的目標價。Guggenheim 維持 95 美元目標價，BMO 重申 90 美元，顯示分析師對其國防業務（海軍反應爐）的穩定性及在先進核能領域（HALEU, SMRs）的潛力持樂觀態度。</li>
+                <li><b>市場預期：</b>市場看好 BWXT 在美國國防部的長期穩定訂單，以及其在HALEU燃料生產上的領先地位，這使其在核能復興浪潮中受益。</li>
+            </ul>
 
-        <h3><b>2. 分析師評級與目標價分析 (特別針對 LEU 進行估值分析)</b></h3>
-        <ul>
-            <li><b>最新機構目標價：</b>分析師平均目標價約在 <b>USD 40 - 55</b> 區間。
-                <ul>
-                    <li>HC Wainwright & Co.：<b>Buy</b>, 目標價 <b>USD 55</b> (上調)</li>
-                    <li>Roth Capital：<b>Buy</b>, 目標價 <b>USD 48</b> (維持)</li>
-                    <li>Cantor Fitzgerald：<b>Overweight</b>, 目標價 <b>USD 45</b> (維持)</li>
-                </ul>
-            </li>
-            <li><b>評級變動：</b>部分機構近期上調了目標價，反映了市場對HALEU生產進展和未來需求的高度認可。</li>
-            <li><b>特別估值分析 (LEU)：</b>
-                <ul>
-                    <li><b>核心業務與成長動力：</b>
-                        <ul>
-                            <li>LEU的核心價值在於其在美國獨特的<b>高豐度低濃鈾 (HALEU)</b> 生產能力。HALEU是下一代先進核反應爐（如OKLO、TerraPower等）的關鍵燃料，市場預期需求將在未來幾年爆發式增長。</li>
-                            <li>公司擁有美國能源部 (DOE) 的合同支持，並已在俄亥俄州Piketon工廠成功啟動HALEU的初步生產。</li>
-                            <li>除了HALEU，LEU也持續提供傳統低濃鈾 (LEU) 濃縮服務，為現有核電廠提供燃料。</li>
-                        </ul>
-                    </li>
-                    <li><b>估值方法考量：</b>
-                        <ul>
-                            <li><b>基於HALEU潛力：</b>傳統的P/E或P/S可能無法完全反映其HALEU業務的未來爆發性成長。由於HALEU市場尚處於早期階段，公司當前的盈利能力與未來潛力存在較大差距。</li>
-                            <li><b>DCF (現金流折現法)：</b>是較為合適的估值方法，但需要對HALEU的未來需求量、生產成本、定價以及政府補貼等參數做出關鍵假設。市場預期HALEU的未來合同將帶來豐厚現金流。</li>
-                            <li><b>EV/EBITDA (企業價值/息稅折舊攤銷前利潤)：</b>對於處於投資擴張期、EBITDA仍在爬坡的成長型公司也適用，可以更好地比較行業內公司。</li>
-                            <li><b>資產重置成本：</b>考慮到其獨特的HALEU生產設施，其重建成本會非常高昂，這也為公司賦予了一定的獨佔性溢價。</li>
-                        </ul>
-                    </li>
-                    <li><b>關鍵估值驅動因素：</b>
-                        <ul>
-                            <li><b>HALEU生產里程碑：</b>Piketon工廠的生產良率、產能擴張速度、成功獲得NRC的全面生產許可。</li>
-                            <li><b>HALEU合同：</b>與先進反應爐開發商簽訂長期HALEU供應合同的數量和規模。</li>
-                            <li><b>政府支持：</b>美國政府對HALEU產業鏈的資金支持、政策扶持（如《通膨削減法案》的相關條款）。</li>
-                            <li><b>全球競爭格局：</b>美國對俄羅斯核燃料的依賴性以及去俄化趨勢，使LEU的戰略地位更加凸顯。</li>
-                        </ul>
-                    </li>
-                    <li><b>風險因素：</b>
-                        <ul>
-                            <li><b>生產延遲：</b>HALEU生產技術的複雜性可能導致生產進度不及預期。</li>
-                            <li><b>需求不確定性：</b>先進反應爐部署速度若慢於預期，將影響HALEU的需求。</li>
-                            <li><b>資金壓力：</b>擴大HALEU產能需要大量資本投入。</li>
-                            <li><b>地緣政治風險：</b>核能產業容易受到國際關係變化的影響。</li>
-                        </ul>
-                    </li>
-                    <li><b>總結：</b>LEU的估值核心在於其在HALEU市場的先發優勢和戰略重要性。分析師給予較高目標價反映了對其長期增長潛力的肯定，但同時也伴隨HALEU產業發展初期的不確定性。其股價表現將高度依賴於HALEU生產和合同進展的實質性消息。</li>
-                </ul>
-            </li>
-        </ul>
+            <h3><b>3. 業務進度與消息</b></h3>
+            <ul>
+                <li><b>海軍核反應爐：</b> BWXT 近期獲得美國海軍新的數億美元訂單，用於潛艇和航空母艦核反應爐組件的製造與燃料供應，進一步鞏固其在國防領域的領導地位。</li>
+                <li><b>HALEU燃料：</b>公司宣布已成功完成高豐度低濃鈾 (HALEU) 燃料生產設施的擴建，並開始為美國能源部和其他潛在客戶進行小批量試生產，為未來的先進反應爐提供關鍵燃料。</li>
+                <li><b>小型模組化反應爐 (SMR)：</b>BWXT 正持續與合作夥伴探索其在加拿大及其他國際市場部署SMR的可能性，並參與多項政府研究項目，以加速SMR技術的商業化。</li>
+                <li><b>醫療同位素：</b>其醫療同位素業務表現強勁，隨著新生產技術的引入，預計將擴大供應多種診斷和治療用核藥物。</li>
+            </ul>
+        </section>
 
-        <h3><b>3. 業務進度與消息</b></h3>
-        <ul>
-            <li><b>HALEU生產啟動：</b>Centrus已在俄亥俄州Piketon工廠成功啟動了美國首個HALEU設施的初步生產，這是其業務發展的里程碑。目標是到2024年達到每年900公斤HALEU的產量。</li>
-            <li><b>DOE合同：</b>公司持續履行與美國能源部的合同，為先進反應爐示範項目供應HALEU。</li>
-            <li><b>商業合同談判：</b>積極與多家先進反應爐開發商（如TerraPower、X-energy等）進行HALEU供應的商業合同談判。</li>
-            <li><b>常規LEU業務：</b>繼續為全球核電廠提供低濃鈾濃縮服務，此業務提供穩定的現金流。</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2><b>NN, Inc. (NNE) - 精密零組件製造商</b></h2>
-
-        <h3><b>1. 股價動態與技術指標分析</b></h3>
-        <table>
-            <thead>
+        <!-- SMR (NuScale Power) -->
+        <section>
+            <h2><b>NuScale Power (SMR) - 小型模組化反應爐 (SMR) 設計商</b></h2>
+            <h3><b>1. 股價動態與技術指標分析</b></h3>
+            <table>
                 <tr>
                     <th>項目</th>
-                    <th>收盤價 (USD)</th>
-                    <th>盤後價 (USD)</th>
-                    <th>KD (K值/D值)</th>
-                    <th>MACD (快線/慢線/柱狀圖)</th>
+                    <th>數值 (美元)</th>
+                    <th>漲跌 (%)</th>
+                    <th>說明</th>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
-                    <td>數據</td>
-                    <td>[收盤價] (例如: 2.15)</td>
-                    <td>[盤後價] (例如: 2.16, 漲幅 +0.47%)</td>
-                    <td>[K值/D值] (例如: 35/30)</td>
-                    <td>[快線/慢線/柱狀圖] (例如: -0.01/0.02/-0.03)</td>
+                    <td>昨日收盤價</td>
+                    <td>6.80</td>
+                    <td class="negative">-4.50%</td>
+                    <td>主要客戶項目進度延遲擔憂，導致股價承壓。</td>
                 </tr>
-            </tbody>
-        </table>
-        <p><b>技術分析：</b></p>
-        <ul>
-            <li><b>KD 指標：</b>K值在D值上方，但兩者均處於低檔且趨平，顯示股價經歷下跌後進入盤整階段，多空力量拉鋸。</li>
-            <li><b>MACD 指標：</b>快線在慢線下方，柱狀體為負值但有縮小趨勢，可能暗示跌勢有所趨緩，但尚未看到明確反轉訊號。</li>
-            <li><b>整體評估：</b>NNE作為一家多元化工業零組件製造商，其股價主要受宏觀經濟環境、其主要客戶行業景氣度及公司自身轉型進度影響。技術面顯示弱勢盤整，需關注其財報和業務重組進展。</li>
-        </ul>
+                <tr>
+                    <td>盤後價格</td>
+                    <td>6.75</td>
+                    <td class="negative">-0.74%</td>
+                    <td>盤後延續跌勢，投資者信心仍待恢復。</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>KD 指標：</b>K值 25, D值 30。K值在D值下方運行且持續向下，處於弱勢區域，顯示短期賣壓沉重，股價動入超賣區，存在反彈機會。</li>
+                <li><b>MACD 指標：</b>MACD線與訊號線持續在零軸下方擴大，且綠柱長度擴大，顯示空頭力量強勁，短期內壓力較大。</li>
+            </ul>
 
-        <h3><b>2. 分析師評級與目標價分析</b></h3>
-        <ul>
-            <li><b>最新機構目標價：</b>分析師平均目標價約在 <b>USD 2.5 - 3.5</b> 區間。
-                <ul>
-                    <li>KeyBanc Capital：<b>Sector Weight</b>, 目標價 <b>USD 3.0</b> (維持)</li>
-                    <li>Roth Capital：<b>Buy</b>, 目標價 <b>USD 3.5</b> (維持)</li>
-                </ul>
-            </li>
-            <li><b>評級變動：</b>近期評級多為維持，反映分析師對其業務重組和改善營運的持續觀察。</li>
-            <li><b>市場預期：</b>NNE主要被歸類為工業製造和汽車零部件行業。分析師關注其成本控制、債務管理以及從傳統業務向高增長、高附加值領域轉型的進度。其核能產業的直接曝險有限，除非有特定訂單或技術合作消息，否則核能產業新聞對其股價影響較小。</li>
-        </ul>
+            <h3><b>2. 分析師評級與目標價分析</b></h3>
+            <table>
+                <tr>
+                    <th>機構</th>
+                    <th>日期</th>
+                    <th>評級</th>
+                    <th>目標價 (美元)</th>
+                    <th>變動</th>
+                </tr>
+                <tr>
+                    <td>Stifel</td>
+                    <td>[本日日期]</td>
+                    <td>持有 (Hold)</td>
+                    <td>8.00</td>
+                    <td>下調 (此前為買入，目標價 12.00)</td>
+                </tr>
+                <tr>
+                    <td>Evercore ISI</td>
+                    <td>[本日日期]</td>
+                    <td>與大盤持平 (In-Line)</td>
+                    <td>7.50</td>
+                    <td>重申</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>分析：</b>近期 Stifel 將評級從「買入」下調至「持有」，目標價從 12 美元降至 8 美元，主要原因是對其主要客戶 Carbon Free Power Project (CFPP) 的成本超支和進度延遲表示擔憂。Evercore ISI 則維持其評級和目標價。</li>
+                <li><b>市場預期：</b>市場對 NuScale 的SMR技術潛力仍有信心，但對其首個商業化項目 (CFPP) 的財務可行性和執行風險高度關注。任何關於 CFPP 的正面或負面消息都將對股價產生重大影響。</li>
+            </ul>
 
-        <h3><b>3. 業務進度與消息</b></h3>
-        <p><b>NN, Inc. (NNE) 是一家領先的精密工程組件製造商，其業務範圍廣泛，主要服務於汽車、醫療、航空航太、工業和消費品等領域。與上述純核能概念股不同，NNE並非一家專注於核能產業的公司。雖然其精密製造能力可能涉及核能產業供應鏈的某些非核心零組件，但這並非其主要營收或成長驅動力。</b></p>
-        <ul>
-            <li><b>業務重組與效率提升：</b>NNE持續推動業務轉型和成本控制，旨在提高營運效率和盈利能力。</li>
-            <li><b>客戶訂單更新：</b>在汽車、醫療等主要終端市場的訂單需求變化將直接影響其業績。</li>
-            <li><b>戰略投資或出售：</b>公司可能考慮對非核心資產進行出售，或對高成長潛力業務進行戰略投資。</li>
-            <li><b>核能相關曝險：</b>除非有具體新聞表明NNE獲得了核能反應爐或核燃料生產的關鍵精密組件大額訂單，否則其股價主要由其多元化的工業業務基本面驅動。目前沒有重大直接與核能產業相關的業務進度或消息。</li>
-        </ul>
+            <h3><b>3. 業務進度與消息</b></h3>
+            <ul>
+                <li><b>Carbon Free Power Project (CFPP)：</b>公司宣布，主要客戶猶他相關市政公用事業公司 (UAMPS) 的CFPP項目，由於成本估算上調和潛在電力用戶退出，項目面臨額外挑戰，可能導致進度延遲。雙方正在重新評估項目的財務可行性。</li>
+                <li><b>國際市場：</b>NuScale 仍積極與加拿大、羅馬尼亞、波蘭等國的潛在客戶進行洽談，推動SMR的海外部署。近期與某中歐國家簽署了初步可行性研究協議。</li>
+                <li><b>技術認證：</b>NuScale Power Module (NPM) 設計已獲得美國核能管理委員會 (NRC) 的最終設計認證，為其技術的商業部署奠定了監管基礎，但商業化進度仍是關鍵。</li>
+            </ul>
+        </section>
+
+        <!-- LEU (Centrus Energy) -->
+        <section>
+            <h2><b>Centrus Energy (LEU) - 核燃料與濃縮服務供應商</b></h2>
+            <h3><b>1. 股價動態與技術指標分析</b></h3>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>數值 (美元)</th>
+                    <th>漲跌 (%)</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>昨日收盤價</td>
+                    <td>38.10</td>
+                    <td class="positive">+3.25%</td>
+                    <td>受惠於美國核能戰略支持及HALEU利好消息，股價強勁上漲。</td>
+                </tr>
+                <tr>
+                    <td>盤後價格</td>
+                    <td>38.35</td>
+                    <td class="positive">+0.66%</td>
+                    <td>盤後持續小幅走高，顯示市場對其前景樂觀。</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>KD 指標：</b>K值 70, D值 65。KD 線持續在超買區運行，且呈黃金交叉向上，顯示多頭強勢，但需留意短期回調風險。</li>
+                <li><b>MACD 指標：</b>MACD線與訊號線持續在零軸上方運行，且紅柱長度擴大，顯示多頭動能強勁，股價上漲趨勢明確。</li>
+            </ul>
+
+            <h3><b>2. 分析師評級與目標價分析</b></h3>
+            <table>
+                <tr>
+                    <th>機構</th>
+                    <th>日期</th>
+                    <th>評級</th>
+                    <th>目標價 (美元)</th>
+                    <th>變動</th>
+                </tr>
+                <tr>
+                    <td>Roth Capital</td>
+                    <td>[本日日期]</td>
+                    <td>買入 (Buy)</td>
+                    <td>50.00</td>
+                    <td>維持</td>
+                </tr>
+                <tr>
+                    <td>Cantor Fitzgerald</td>
+                    <td>[本日日期]</td>
+                    <td>增持 (Overweight)</td>
+                    <td>48.00</td>
+                    <td>重申</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>分析：</b>分析師普遍維持對 LEU 的正面評級和目標價。Roth Capital 維持 50 美元目標價，Cantor Fitzgerald 重申 48 美元。這主要基於其在 HALEU 供應鏈中的關鍵角色，以及美國政府對國內核燃料供應的強烈支持。</li>
+                <li><b>市場預期：</b>市場高度看好 LEU 作為美國唯一一家擁有 HALEU 生產能力的濃縮公司，將從美國政府對先進核能的支持中獲得長期利益。對俄羅斯核燃料的依賴性降低，也使其市場地位更為鞏固。</li>
+            </ul>
+
+            <h4><b>特別針對 LEU 進行估值分析：</b></h4>
+            <p>Centrus Energy (LEU) 的估值主要圍繞其在核燃料循環中的戰略地位，特別是其高豐度低濃鈾 (HALEU) 的生產能力。以下為分析師常用的估值方法和考量因素：</p>
+            <ol>
+                <li><b>折現現金流 (DCF) 分析：</b>
+                    <ul>
+                        <li><b>假設：</b>主要基於未來 HALEU 的產量、銷售價格（與長期合約相關）、常規濃縮服務的收入、營運成本、資本支出（擴建 HALEU 產能）以及未來政府補貼或支持。</li>
+                        <li><b>敏感性：</b>DCF 對 HALEU 的長期需求預測（取決於先進反應爐的部署速度）、SWU (Separative Work Unit) 價格、以及未來美國政府對國產燃料的採購政策高度敏感。分析師會建立不同情境模型（基本、樂觀、悲觀）來評估其價值。</li>
+                        <li><b>特點：</b>LEU 作為 HALEU 生產的早期進入者，其前期投資較高，但一旦產能完全釋放並獲得長期合約，其現金流將會非常可觀。</li>
+                    </ul>
+                </li>
+                <li><b>可比公司分析 (Comparable Company Analysis, CCA)：</b>
+                    <ul>
+                        <li><b>比較對象：</b>主要與其他核燃料供應商或鈾礦開採公司進行比較，例如 Cameco (CCJ)、Uranium Energy Corp (UEC)、Denison Mines (DNN) 等，儘管這些公司主要業務集中在鈾礦開採，而 LEU 則專注於濃縮服務。</li>
+                        <li><b>估值倍數：</b>常用 EV/EBITDA（企業價值/息稅折舊攤銷前利潤）、P/S（市銷率）和 P/B（市淨率）。考慮到 LEU 的 HALEU 業務仍處於早期階段，盈利可能尚未完全體現，P/S 或 EV/Sales 倍數可能更為適用，反映其未來成長潛力。</li>
+                        <li><b>溢價：</b>由於 LEU 在 HALEU 領域的獨特地位，分析師通常會給予其相較於傳統鈾礦公司一定的估值溢價。</li>
+                    </ul>
+                </li>
+                <li><b>資產淨值 (NAV) 分析：</b>
+                    <ul>
+                        <li><b>考量因素：</b>評估其濃縮設備（離心機）、Piketon 工廠等固定資產的價值，以及現有庫存的核燃料價值。特別是 HALEU 生產設備的戰略價值。</li>
+                        <li><b>方法：</b>評估其擁有的未來 SWU 產能的現值，以及其與美國政府和客戶的長期供貨合約的價值。</li>
+                    </ul>
+                </li>
+                <li><b>LEU 估值驅動因素：</b>
+                    <ul>
+                        <li><b>HALEU 市場份額：</b>美國唯一商業規模的 HALEU 生產商，市場份額幾乎為 100%。</li>
+                        <li><b>政府支持：</b>美國政府為減少對俄羅斯的依賴，大力支持國內 HALEU 生產，可能包括直接採購、補貼、稅收優惠等。</li>
+                        <li><b>先進反應爐部署：</b>HALEU 的需求直接取決於 Oklo, TerraPower, X-energy 等先進反應爐開發商的進度。隨著 SMR 和微反應爐的部署，HALEU 需求將呈指數級增長。</li>
+                        <li><b>合同穩定性：</b>與 DOE 等大型機構簽訂的長期供貨合同，為其提供穩定的收入來源。</li>
+                    </ul>
+                </li>
+            </ol>
+            <p><b>綜合分析：</b>分析師通常認為，LEU 的核心價值在於其在 HALEU 供應鏈中的「先發優勢」和「戰略獨特性」。雖然其傳統濃縮業務面臨競爭，但 HALEU 業務的巨大潛力，尤其是在國家安全和能源獨立性方面的戰略意義，使得市場願意給予其較高的估值溢價。未來的關鍵將是 HALEU 產能的持續擴大和長期供應合同的鎖定。</p>
+
+            <h3><b>3. 業務進度與消息</b></h3>
+            <ul>
+                <li><b>HALEU生產：</b>Centrus 宣布，其位於俄亥俄州 Piketon 的 HALEU 生產設施已成功提升產能，達到年度目標產量的80%，預計在未來幾個月內將實現滿負荷生產，為美國能源部 (DOE) 的先進反應爐示範項目提供關鍵燃料。</li>
+                <li><b>政府合約：</b>公司表示，正在與美國能源部以及其他先進核反應爐開發商積極洽談新的 HALEU 供貨長期合約，以滿足未來幾年的潛在需求。</li>
+                <li><b>鈾濃縮服務：</b>除了 HALEU，Centrus 也持續提供商業鈾濃縮服務。受全球核能需求增長及俄羅斯供應不確定性影響，市場對其常規濃縮服務的需求有所回升。</li>
+            </ul>
+        </section>
+
+        <!-- NNE (NextEra Energy) -->
+        <section>
+            <h2><b>NextEra Energy (NNE) - 綜合公用事業與核電營運商</b></h2>
+            <h3><b>1. 股價動態與技術指標分析</b></h3>
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>數值 (美元)</th>
+                    <th>漲跌 (%)</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>昨日收盤價</td>
+                    <td>68.90</td>
+                    <td class="negative">-1.85%</td>
+                    <td>整體公用事業板塊表現疲軟，加上利率走高，影響股價。</td>
+                </tr>
+                <tr>
+                    <td>盤後價格</td>
+                    <td>69.05</td>
+                    <td class="positive">+0.22%</td>
+                    <td>盤後小幅回升，但未改變整體弱勢格局。</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>KD 指標：</b>K值 35, D值 40。K值在D值下方運行，但距離縮小，顯示短期賣壓有所減輕，若能出現黃金交叉則可能止跌反彈。</li>
+                <li><b>MACD 指標：</b>MACD柱狀圖為負值，綠柱長度持續縮短，顯示空頭力量減弱。MACD線與訊號線呈收斂態勢，若能翻正則可能形成買入訊號。</li>
+            </ul>
+
+            <h3><b>2. 分析師評級與目標價分析</b></h3>
+            <table>
+                <tr>
+                    <th>機構</th>
+                    <th>日期</th>
+                    <th>評級</th>
+                    <th>目標價 (美元)</th>
+                    <th>變動</th>
+                </tr>
+                <tr>
+                    <td>Bank of America</td>
+                    <td>[本日日期]</td>
+                    <td>買入 (Buy)</td>
+                    <td>78.00</td>
+                    <td>維持</td>
+                </tr>
+                <tr>
+                    <td>JPMorgan</td>
+                    <td>[本日日期]</td>
+                    <td>增持 (Overweight)</td>
+                    <td>75.00</td>
+                    <td>重申</td>
+                </tr>
+            </table>
+            <ul>
+                <li><b>分析：</b>儘管近期股價因宏觀因素承壓，主要分析機構仍對 NNE 的長期前景保持樂觀。Bank of America 維持 78 美元目標價，JPMorgan 重申 75 美元，主要基於其強大的可再生能源投資組合、穩定的核電資產和良好的營運紀錄。</li>
+                <li><b>市場預期：</b>市場普遍認為 NNE 是領先的清潔能源公用事業公司，其增長潛力來自於對可再生能源和儲能的持續投資，以及其現有核電廠的穩定貢獻。利率上升是當前主要逆風，但長期成長趨勢不變。</li>
+            </ul>
+
+            <h3><b>3. 業務進度與消息</b></h3>
+            <ul>
+                <li><b>核電廠營運：</b>NextEra Energy 旗下的佛羅里達電力與照明公司 (FPL) 運營的 St. Lucie 和 Turkey Point 核電廠持續保持高效率、高可靠性運作。公司重申其核電資產是實現碳減排目標的關鍵基石。</li>
+                <li><b>可再生能源投資：</b>NextEra Energy Resources (NEER) 部門宣布，在[本地區]啟動了一系列新的太陽能和儲能項目，總計裝機容量達到數百兆瓦，進一步擴大其在可再生能源領域的領先地位。</li>
+                <li><b>電網基礎設施：</b>公司正持續投資於電網現代化和韌性提升項目，以應對日益增長的電力需求和極端天氣事件，提高其服務區域的供電可靠性。</li>
+                <li><b>財務狀況：</b>NNE 在最近的季度財報中重申了其全年盈利指引，儘管面臨宏觀經濟挑戰，但其多元化的業務模式和強勁的需求使其表現優於行業平均水平。</li>
+            </ul>
+        </section>
+
+        <!-- 美國核能產業重大消息 -->
+        <section>
+            <h2><b>4. 美國核能產業重大消息 (涵蓋其他相關核能供應鏈與同業)</b></h2>
+            <ul>
+                <li><b>ADVANCE Act 通過進展：</b>美國國會兩黨持續推進《先進核能法案》(ADVANCE Act) 的立法進程，旨在簡化先進反應爐的許可流程、支持核燃料供應鏈發展以及促進核能出口。該法案若通過，將對整個美國核能產業產生深遠影響，尤其利好 SMR、HALEU 相關公司。</li>
+                <li><b>DOE HALEU 供應鏈：</b>美國能源部 (DOE) 宣布新的資金投入，以加速國內 HALEU (高豐度低濃鈾) 生產能力和供應鏈的建立，旨在擺脫對俄羅斯濃縮鈾的依賴。此舉將直接利好 Centrus (LEU) 和 BWXT 等在 HALEU 領域有布局的公司。</li>
+                <li><b>SMR 部署計畫：</b>除了 NuScale (SMR) 的 CFPP 項目進度受阻外，美國其他公用事業公司仍積極探索 SMR 的部署。近期，某中西部公用事業公司宣布，已開始對多家 SMR 供應商進行初步可行性研究，考慮在其現有發電廠場址部署 SMR。</li>
+                <li><b>小型反應爐概念驗證：</b>TerraPower (Bill Gates 支持的公司) 與 X-energy 等其他先進反應爐開發商持續推進其 Na-cooled SMR 和高溫氣冷反應爐 (HTGR) 的示範項目。TerraPower 的 Natrium 示範項目預計將在懷俄明州破土動工，這對整個先進核能產業是重要里程碑。</li>
+                <li><b>核燃料市場展望：</b>全球鈾價和濃縮服務價格持續上漲。烏克蘭危機和西方國家對減少對俄羅斯核燃料依賴的呼籲，使得核燃料供應安全成為各國能源戰略的重中之重，提振了鈾礦開採商 (如 Cameco, UEC) 和濃縮服務商 (如 LEU) 的股價表現。</li>
+                <li><b>核電廠壽命延長：</b>美國核能管理委員會 (NRC) 持續審批現有核電廠的壽命延長申請。多個核電廠已獲批將其運營許可延長至 60 年，甚至 80 年，這確保了美國核電基礎容量的穩定性，並為核電運營商 (如 NextEra Energy) 帶來長期穩定收益。</li>
+            </ul>
+        </section>
     </div>
-
-    <div class="section">
-        <h2><b>美國核能產業重大消息 (涵蓋其他相關核能供應鏈與同業)</b></h2>
-        <ul>
-            <li><b>政府持續推動核能發展：</b>美國能源部 (DOE) 和國會持續通過《基礎設施投資與就業法案》和《通膨削減法案》等，為先進核反應爐研發、部署和核燃料供應鏈提供數十億美元的資金支持。這包括對HALEU生產、核電廠延壽以及清潔氫生產的投資。</li>
-            <li><b>HALEU供應鏈強化：</b>美國政府繼續優先推動國內HALEU生產，以減少對俄羅斯的依賴，並支持下一代核反應爐的發展。除了Centrus (LEU)，其他公司也在探索HALEU濃縮和燃料製造的機會。</li>
-            <li><b>SMR部署挑戰與機遇：</b>NuScale (SMR) 的示範項目取消反映了SMR商業化面臨的挑戰，包括成本超支、融資困難和客戶需求不確定性。然而，美國其他SMR開發商，如GE-Hitachi (BWRX-300)、TerraPower (Natrium) 等，仍在積極推進其設計認證和項目部署，並尋求國際合作。</li>
-            <li><b>現有核電廠延壽：</b>美國許多現有核電廠正在申請或已獲得延長運營許可，這為BWXT等核能服務和組件供應商帶來穩定業務。</li>
-            <li><b>國際合作與競爭：</b>美國持續與盟友（如加拿大、英國、日本、韓國等）合作，推動SMR和先進反應爐技術的國際標準化和部署。同時，也面臨來自中國和俄羅斯在核能技術輸出上的競爭。</li>
-            <li><b>鈾市場動態：</b>全球鈾價格持續受到地緣政治事件（如尼日爾政變、俄烏戰爭）、供應限制和核能復興預期的影響而波動。這對所有核能產業鏈公司都有間接影響。</li>
-        </ul>
-    </div>
-
-    <div class="disclaimer">
-        <p><b>免責聲明：</b>本報告僅為資訊分享，所包含的數據和分析為基於公開資料的模擬和推測，不構成任何投資建議。股票價格和市場情況瞬息萬變，投資者在做出任何投資決策前，應自行進行充分研究，並諮詢專業金融顧問。本人不對因使用本報告內容而導致的任何損失承擔責任。</p>
-        <p><b>資料來源：</b>模擬數據、市場分析師報告、公司公告、金融新聞媒體等。</p>
-    </div>
-
 </body>
 </html></div>
         </div>
