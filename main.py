@@ -1,135 +1,76 @@
-import os
-import google.generativeai as genai
-from datetime import datetime
-import pytz
-import time
-import re
-import traceback
+import yfinance as yf
+import pandas as pd
+import pandas_ta as ta
 
-# 設定 API Key
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+# 1. 定義產業分類
+industry_map = {
+    "太空火箭": ['FLY', 'LUNR', 'RKLB'],
+    "核能能源": ['UUUU', 'LEU', 'OKLO', 'SMR', 'USAR'],
+    "稀土戰略": ['CRML', 'AREC', 'NB', 'LAC'],
+    "軍工產業": ['LMT', 'NOC'],
+    "AI產業": ['TSLA', 'TSM', 'NVDA', 'AMD']
+}
 
-# 取得台灣時間
-tw_time = datetime.now(pytz.timezone('Asia/Taipei')).strftime("%Y-%m-%d %H:%M")
+# 攤平清單以利 yfinance 下載
+all_tickers = [ticker for sublist in industry_map.values() for ticker in sublist]
 
-# --- 您的關注清單 ---
-prompts = [
-    {
-        "title": "🚀 LUNR (Intuitive Machines) 每日追蹤",
-        "query": "請提供美股代碼 LUNR (Intuitive Machines) 的完整每日快訊，需以台灣時間最新的資訊為主（含盤後數據）。內容需包含：1. 股價動態（收盤與盤後）與 KD/MACD 技術指標分析；2. 業務項目進度（特別關注 IM-2 發射時程、NSNS 合約執行、與 X-energy 的核能合作）；3. 指數影響分析與分析師評級/預估；4. 相關太空產業重大消息，並附上「阿提密斯計劃 (Artemis Program)」的每日進度表與未來規劃時間軸。"
-    },
-    {
-        "title": "🚀 FLY (Firefly Aerospace) 每日追蹤",
-        "query": "請提供美股 FLY (Firefly Aerospace) 的完整每日快訊，需以台灣時間最新的資訊為主。內容需包含：1. 股價動態與 KD/MACD 技術指標分析；2. 按業務項目（Alpha 火箭「包含 Flight 7 具體進度」、Blue Ghost、與 NOC 合作的 Eclipse、Elytra 等）分類說明的最新消息與里程碑，並追蹤法律訴訟進度；3. 指數影響分析與分析師評級/預估；4. 美國航天產業重大消息（如 SpaceX IPO、Rocket Lab 等同業動態）。"
-    },
-    {
-        "title": "🌕 美國三大戰略計劃整合快訊",
-        "query": "請提供【美國三大戰略計劃：金穹 (Golden Dome)、雅努斯 (Janus)、阿提密斯 (Artemis)】的每日進度整合快訊。內容需以**表格方式**呈現，**表格結構請務必採『先分類業務項目/任務代號，再列出供應商』的格式**。關鍵要求：阿提密斯計劃 (Artemis) 必須包含 Artemis II, III, CLPS (IM-2), LTV, Gateway, FSP, DRACO 等項目，並在供應商欄位**明確標註美股代碼** (如 $LUNR, $LMT, $NOC, $BWXT)。"
-    },
-    {
-        "title": "⚛️ 核能產業 (OKLO, BWXT, SMR, LEU, NNE) 每日快訊",
-        "query": "請提供美股代碼 OKLO, BWXT, SMR, LEU, NNE 的完整每日快訊，需以台灣時間最新的資訊為主（含盤後數據）。內容需包含：1. 股價動態（收盤與盤後）與 KD/MACD 技術指標分析。2. **分析師評級與目標價分析**（需詳列最新機構目標價、評級變動，並**特別針對 LEU 進行估值分析**）。3. 按業務項目分別介紹各進度及消息。4. 美國核能產業重大消息（涵蓋其他相關核能供應鏈與同業）。"
-    }
-]
+print(f"正在抓取 {len(all_tickers)} 檔標的的最新股價資料...")
 
-# --- V3.5 邏輯：使用您帳號清單中的 2.5 Flash ---
-def smart_generate(prompt_text):
-    # 根據您的截圖，1.5 已被淘汰，改用清單第一位的 2.5 Flash
-    target_model = "gemini-2.5-flash"
-    
-    system_instruction = "\n\n(Technical Requirement: Output strictly in HTML format. Use <table> for data tables. Use <b> for headers. Do not use Markdown code blocks.)"
-    full_query = prompt_text + system_instruction
+# 抓取最近 3 個月的數據
+df = yf.download(all_tickers, period="3mo", group_by='ticker', auto_adjust=True)
 
-    try:
-        print(f"   嘗試使用模型：{target_model}...")
-        model = genai.GenerativeModel(target_model)
-        response = model.generate_content(full_query)
-        
-        if not response.parts:
-            return "<p>AI 回傳空值 (請稍後再試)</p>", "No Data"
-            
-        return clean_html(response.text), "Gemini 2.5 Flash"
-    except Exception as e:
-        print(f"   ⚠️ 失敗：{e}")
-        # 如果 2.5 Flash 也失敗，我們再試試看 'gemini-flash-latest' 這個通用別名
-        try:
-            print("   ⚠️ 2.5 Flash 失敗，嘗試通用別名 gemini-flash-latest...")
-            model_fallback = genai.GenerativeModel("gemini-flash-latest")
-            response = model_fallback.generate_content(full_query)
-            return clean_html(response.text), "Gemini Flash (Latest)"
-        except Exception as e2:
-            return f"<p style='color:red; background:#fee; padding:10px;'>分析失敗。<br>主因：{e}<br>備援失敗：{e2}</p>", "Error"
+# 用來存放計算結果
+results = {}
 
-def clean_html(text):
-    text = re.sub(r"^```html", "", text, flags=re.MULTILINE)
-    text = re.sub(r"^```", "", text, flags=re.MULTILINE)
-    return text.strip()
+for ticker in all_tickers:
+    try:
+        # 取得該檔股票的 DataFrame
+        stock_data = df[ticker].copy()
+        stock_data.dropna(subset=['Close'], inplace=True)
+        
+        if len(stock_data) < 2:
+            continue
 
-# --- 主程式 ---
-html_content = ""
+        # 2. 計算技術指標
+        stock_data['SMA_20'] = ta.sma(stock_data['Close'], length=20)
+        stock_data['SMA_60'] = ta.sma(stock_data['Close'], length=60)
+        stock_data['RSI_14'] = ta.rsi(stock_data['Close'], length=14)
+        
+        # 取得最新一筆與前一筆資料
+        latest = stock_data.iloc[-1]
+        prev = stock_data.iloc[-2]
+        
+        change = latest['Close'] - prev['Close']
+        pct_change = (change / prev['Close']) * 100
+        
+        results[ticker] = {
+            "Date": latest.name.strftime('%Y-%m-%d'),
+            "Close": round(latest['Close'], 2),
+            "Change": round(change, 2),
+            "Pct_Change": round(pct_change, 2),
+            "SMA_20": round(latest['SMA_20'], 2) if pd.notna(latest['SMA_20']) else "N/A",
+            "RSI": round(latest['RSI_14'], 2) if pd.notna(latest['RSI_14']) else "N/A"
+        }
+    except Exception as e:
+        print(f"處理 {ticker} 時發生錯誤: {e}")
 
-try:
-    html_content = f"""
-    <!DOCTYPE html>
-    <html lang="zh-TW">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>個人美股戰情室 V3.5</title>
-        <style>
-            body {{ font-family: "Microsoft JhengHei", sans-serif; line-height: 1.6; max-width: 950px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; color: #333; }}
-            h1 {{ text-align: center; color: #003366; border-bottom: 3px solid #d32f2f; padding-bottom: 15px; }}
-            .timestamp {{ text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }}
-            .card {{ background: white; padding: 30px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }}
-            h2 {{ color: #d32f2f; border-left: 5px solid #003366; padding-left: 15px; display: flex; justify-content: space-between; align-items: center; }}
-            .model-badge {{ font-size: 12px; background: #e3f2fd; color: #1565c0; padding: 2px 8px; border-radius: 10px; font-weight: normal; }}
-            table {{ width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 15px; }}
-            th {{ background-color: #003366; color: white; padding: 10px; text-align: left; }}
-            td {{ border: 1px solid #ddd; padding: 8px; }}
-            tr:nth-child(even) {{ background-color: #f9f9f9; }}
-            b {{ color: #d32f2f; background-color: #fff3cd; }}
-        </style>
-    </head>
-    <body>
-        <h1>📈 個人美股戰情室 (V3.5 2026版)</h1>
-        <p class="timestamp">更新時間：{tw_time} (UTC+8)</p>
-        <p style="text-align:center; color:#1565c0; font-size:12px;">✅ 適配 2026 年模型架構 (Gemini 2.5 Flash)</p>
-    """
+# 3. 依照產業分類顯示結果
+print("\n" + "★"*30)
+print("  美股產業分類監控報表")
+print("★"*30)
 
-    print("🚀 開始執行 V3.5 分析 (目標模型: gemini-2.5-flash)...")
+for category, tickers in industry_map.items():
+    print(f"\n【{category}】")
+    print("-" * 65)
+    print(f"{'代碼':<8} {'日期':<12} {'現價':<10} {'漲跌(%)':<15} {'月線(SMA20)':<12} {'RSI':<6}")
+    
+    for ticker in tickers:
+        if ticker in results:
+            d = results[ticker]
+            change_str = f"{d['Change']} ({d['Pct_Change']}%)"
+            print(f"{ticker:<8} {d['Date']:<12} {d['Close']:<10} {change_str:<15} {d['SMA_20']:<12} {d['RSI']:<6}")
+        else:
+            print(f"{ticker:<8} 無法取得資料")
+    print("-" * 65)
 
-    for index, item in enumerate(prompts):
-        print(f"[{index+1}/{len(prompts)}] 分析項目：{item['title']}...")
-        result_text, used_model = smart_generate(item['query'])
-        
-        html_content += f"""
-        <div class="card">
-            <h2>
-                {item['title']}
-                <span class="model-badge">{used_model}</span>
-            </h2>
-            <div class="content-body">{result_text}</div>
-        </div>
-        """
-        
-        if index < len(prompts) - 1:
-            print("⏳ 等待 15 秒...")
-            time.sleep(15)
-
-except Exception as e:
-    print(f"❌ 嚴重錯誤：{traceback.format_exc()}")
-    html_content += f"<div class='card'><h2>系統發生嚴重錯誤</h2><pre>{traceback.format_exc()}</pre></div>"
-
-finally:
-    html_content += """
-        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #777; font-size: 14px;">
-            Automated by GitHub Actions | V3.5 Compatible
-        </footer>
-    </body>
-    </html>
-    """
-    
-    with open("index.html", "w", encoding="utf-8") as f:
-        f.write(html_content)
-    
-    print("🎉 報告寫入完成 (V3.5)")
+請協助幫我執行上述程式看看
